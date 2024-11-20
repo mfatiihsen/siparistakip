@@ -27,7 +27,7 @@ body {
 .navbar {
   background-color: #fff;
   height: 80px;
-  margin: 20px;
+  margin: 0px;
   border-radius: 16px;
   padding: 0.5rem;
 }
@@ -107,8 +107,6 @@ body {
   height: 900px;
   flex: 1; /* Ana içeriği esneterek footer'ı aşağı iter */
 }
-
-
 
 
 

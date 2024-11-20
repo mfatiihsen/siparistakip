@@ -27,7 +27,9 @@
     <!--  MAIN  -->
     <main>
         <div class="main-content">
-            <!-- Ana içerik buraya gelecek -->
+            <!-- NEDEN BİZ KISMI  -->
+
+
         </div>
     </main>
 
