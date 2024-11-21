@@ -1,8 +1,6 @@
 
 
 
-<section id="contentt">
-
 	<main>
 		<h1 class="title">Kontrol Paneli</h1>
 		<ul class="breadcrumbs">
@@ -134,4 +132,3 @@
 			</div>
 		</div>
 	</main>
-</section>

@@ -12,10 +12,10 @@
 			<li>
 				<a href="#"><i class='bx bx-basket icon'></i> Siparişler <i class='bx bx-chevron-right icon-right' ></i></a>
 				<ul class="side-dropdown">
-					<li><a href="#">Tamamlanan Siparişler</a></li>
-					<li><a href="#">Tüm Siparişler</a></li>
-					<li><a href="#">Yeni Sipariş Ekle</a></li>
-					<li><a href="#">Bekleyen Siparişler</a></li>
+					<li><a href="tamamlanan_siparisler.php">Tamamlanan Siparişler</a></li>
+					<li><a href="tum_siparisler.php">Tüm Siparişler</a></li>
+					<li><a href="siparis_ekle.php">Yeni Sipariş Ekle</a></li>
+					<li><a href="devam_eden_siparisler.php">Devam Eden Siparişler</a></li>
 				</ul>
 			</li>
 			<li>
@@ -35,9 +35,8 @@
 			<li>
 				<a href="#"><i class='bx bx-id-card icon'></i>Yönetici<i class='bx bx-chevron-right icon-right' ></i></a>
 				<ul class="side-dropdown">
-					<li><a href="#">Yönetici Listesi</a></li>
+					<li><a href="admin_listele.php">Yönetici Listesi</a></li>
 					<li><a href="admin_ekle.php">Yönetici Ekle</a></li>
-					<li><a href="#">Yetki Yönetimi</a></li>
 				</ul>
 			</li>
 			<li class="divider" data-text="site ayarlari">Ayarları</li>

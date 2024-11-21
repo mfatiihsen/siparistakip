@@ -1,1 +1,0 @@
-Okuldan verilen geliştirdiğim projem
