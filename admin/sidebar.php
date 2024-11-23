@@ -14,8 +14,8 @@
 				<ul class="side-dropdown">
 					<li><a href="tamamlanan_siparisler.php">Tamamlanan Siparişler</a></li>
 					<li><a href="tum_siparisler.php">Tüm Siparişler</a></li>
+					<li><a href="devam_eden_siparis.php">Devam Eden Siparişler</a></li>
 					<li><a href="siparis_ekle.php">Yeni Sipariş Ekle</a></li>
-					<li><a href="devam_eden_siparisler.php">Devam Eden Siparişler</a></li>
 				</ul>
 			</li>
 			<li>

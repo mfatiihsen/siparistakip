@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <title>Admin Paneli-Tamamlanan Siparişler</title>
+    <title>Tüm Siparişler</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
@@ -62,7 +62,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    $siparis = $baglanti->prepare("SELECT * FROM siparis WHERE siparis_durum IN ('TESLİM EDİLDİ') ORDER BY siparis_durum");
+                    $siparis = $baglanti->prepare("SELECT * FROM siparis WHERE siparis_durum IN ('YOLDA', 'TESLİM ALINDI','DAĞITIMDA') ORDER BY siparis_durum");
                     $siparis->execute();
                     while ($sipariscek = $siparis->fetch(PDO::FETCH_ASSOC)) {
                         ?>
@@ -118,6 +118,14 @@
         var durumYazi = durumElement.textContent.trim() === "YOLDA";
         if (durumYazi) {
             durumElement.style.color = "blue";  // Eğer "TESLİM ALINDI" ise, kırmızı yap
+        }
+    });
+
+
+    durumElements.forEach(function (durumElement) {
+        var durumYazi = durumElement.textContent.trim() === "DAĞITIMDA";
+        if (durumYazi) {
+            durumElement.style.color = "orange";  // Eğer "TESLİM ALINDI" ise, kırmızı yap
         }
     });
 

@@ -2,10 +2,16 @@
 
 <?php
 
-
-
 session_start();
 require_once 'baglanti.php';
+
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../PHPMailer/src/Exception.php';
+require '../PHPMailer/src/PHPMailer.php';
+require '../PHPMailer/src/SMTP.php';
 
 
 
@@ -101,10 +107,7 @@ if (isset($_POST['adminekle'])) {
             });
             </script>";
         }
-
     }
-
-
 }
 
 
@@ -205,6 +208,7 @@ if (isset($_POST['siparisekle'])) {
             ));
 
             if ($insert) {
+                sendEmail($mail, $adsoyad, $takipno);
                 echo "<script>
                 document.addEventListener('DOMContentLoaded', function() {
                     swal({
@@ -245,7 +249,90 @@ if (isset($_POST['siparisekle'])) {
             });
             </script>";
         }
+    }
+}
 
+// Sipariş eklendiğinde mail gönderme işlemi
+function sendEmail($email, $adsoyad, $siparisno)
+{
+    // Parametrelerin doğruluğunu kontrol et
+    if (!$email) {
+        return "Lütfen email adresini kontrol edin";
+    } elseif (!$siparisno) {
+        return "Lütfen numara içeriği yazınız";
+    } elseif (!$adsoyad) {
+        return "Lütfen ad soyad içeriği yazınız";
     }
 
+    $mail = new PHPMailer(true);
+
+    try {
+        // SMTP ayarları
+        $mail->SMTPDebug = 1; // Verbose debug output
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'ademfatih37@gmail.com';
+        $mail->Password = 'domr knrq vxch avsz';  // Burada uygulama şifresi kullanmalısınız
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
+        //$mail->charSet = 'UTF-8';
+        $mail->setLanguage('tr');
+
+        // Gönderen adresi ve yanıt adresi
+        $mail->setFrom('ademfatih37@gmail.com', 'Siparis Takip Sistemi');
+        $mail->addAddress($email);
+        $mail->addReplyTo('ademfatih37@gmail.com', 'Fatih ŞEN');
+
+        // Mail içeriği
+        $mail->isHTML(true);
+        $mail->Subject = 'Sipariş Takip Sistemi';
+        $mail->Body = 'Merhaba ' . $adsoyad . '! Siparişiniz şubemiz tarafından teslim alınmıştır.<br> Aşağıdaki takip numarası ile internet sitemizden siparişinizi takip edebilirsiniz. İyi Günler dileriz. <br>' . 'Takip Numaranız:' . $siparisno;
+
+        // E-posta gönderme
+        $mail->send();
+        return "Mail Başarıyla gönderildi";
+    } catch (Exception $e) {
+        return "Mail gönderilemedi. Hata: {$mail->ErrorInfo}";
+    }
+}
+
+
+
+// Sipariş Arama İçin yazılmıştır
+
+if (isset($_POST['search'])) {
+    $aramaTermi = $_GET['arama'];  // Kullanıcıdan gelen arama terimi
+
+    // Arama işlemi
+    // Burada basit bir dizide arama yapalım.
+    $sql = "SELECT * FROM siparisler WHERE siparis_takip_no LIKE ?";
+    $stmt = $conn->prepare($sql);
+    $siparisTakipNoLike = "%" . $siparisTakipNo . "%";  // LIKE operatörü kullanarak arama yapılır
+    $stmt->bind_param("s", $siparisTakipNoLike);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Sonuçları tablo halinde gösterme
+    if ($result->num_rows > 0) {
+        echo "<h3>Arama Sonuçları:</h3>";
+        echo "<table>";
+        echo "<tr><th>Sipariş Takip No</th><th>Müşteri Adı</th><th>Ürün</th><th>Tarih</th><th>Durum</th></tr>";
+
+        // Her bir sonucu tabloya yazma
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td>" . htmlspecialchars($row['siparis_takip_no']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['musteri_adi']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['siparis_tarihi']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['siparis_durumu']) . "</td>";
+            echo "</tr>";
+        }
+
+        echo "</table>";
+    } else {
+        echo "<p>Aradığınız sipariş bulunamadı.</p>";
+    }
+
+    $stmt->close();
 }
