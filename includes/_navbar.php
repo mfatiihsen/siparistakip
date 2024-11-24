@@ -7,7 +7,7 @@
     <div class="container-fluid">
 
         <div>
-            <img src="assets/images/logo.png" height="70px" width="70px">
+            <img src="../assets/images/logo.png" height="70px" width="70px">
             <a class="navbar-brand me-auto" href="../index.php" style="color: #1775f1;">SiparisTakip</a>
         </div>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
@@ -19,16 +19,16 @@
             <div class="offcanvas-end">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link mx-lg-2 active" aria-current="page" href="index.php">ANA SAYFA</a>
+                        <a class="nav-link mx-lg-2 active" aria-current="page" href="../index.php">ANA SAYFA</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-lg-2" href="views/hakkimizda.php">HAKKIMIZDA</a>
+                        <a class="nav-link mx-lg-2" href="../views/hakkimizda.php">HAKKIMIZDA</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-lg-2" href="views//iletisim.php">İLETİŞİM</a>
+                        <a class="nav-link mx-lg-2" href="../views/iletisim.php">İLETİŞİM</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-lg-2" href="views/login.php">GİRİŞ</a>
+                        <a class="nav-link mx-lg-2" href="../views/login.php">GİRİŞ</a>
                     </li>
                 </ul>
             </div>
