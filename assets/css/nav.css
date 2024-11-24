@@ -1,0 +1,95 @@
+/* ---------------------------------------------------------------------------------------------- */
+/* NAVBAR CSS */
+
+.container-top {
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.num {
+  margin: 0;
+  font-size: 12px;
+  color: grey;
+}
+
+.mail {
+  margin: 0;
+  font-size: 12px;
+  color: grey;
+}
+
+.navbar {
+  flex-direction: column;
+  background-color: #fff;
+  height: 80px;
+  margin: 0px;
+  border-radius: 0;
+  padding: 0.5rem;
+}
+
+.navbar-brand {
+  font-weight: 500;
+  color: #1775f1;
+  font-size: 24px;
+  transition: 0.3s color;
+  text-decoration: none;
+}
+
+.login-button {
+  background-color: #1775f1;
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.3s background-color;
+}
+
+.login-button:hover {
+  background-color: #0c5fcd;
+}
+
+.navbar-toggler {
+  border: none;
+  font-size: 1.25rem;
+}
+
+.navbar-toggler:focus,
+.btn-close:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.nav-link {
+  color: #666777;
+  font-weight: 600;
+  position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #000;
+}
+
+@media (min-width: 991px) {
+  .nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #1775f1;
+    visibility: hidden;
+    transform: 0.3s ease-in-out;
+  }
+
+  .nav-link:hover::before,
+  .nav-link.active::before {
+    width: 100%;
+    visibility: visible;
+  }
+}

@@ -1,0 +1,231 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100vh;
+  margin: 0;
+  
+}
+
+body {
+  background-color:  #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  min-height: 100px;
+}
+
+
+
+
+/* ---------------------------------------------------------------------------------------------- */
+/* MAIN CSS */
+
+main{
+  width: 100%;
+  flex: 1; /* Ana içeriği esneterek footer'ı aşağı iter */
+  margin-top: 20px;
+  padding: 30px;
+}
+
+.main-content {
+  height: 100%;
+}
+
+/* search-container'ı Flexbox ile dikeyde ortalamak */
+.search-container {
+  flex-direction: column;
+  display: flex;
+  align-items: center;  /* Dikeyde ortalama */
+  height: 100%;        /* Konteynerin yüksekliğini tüm ekran yapmak */
+  width: 100%;          /* Konteynerin genişliği tüm sayfayı kaplasın */
+  padding: 10px;
+  justify-content: center;  /* Yatayda ortalama */
+}
+
+/* Input alanını stilize et */
+
+form{
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+
+.search-input {
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #1775f1;
+  border-radius: 30px;
+  width: 50%;  
+  margin-right: 10px;  
+  transition: all 0.2s ease-in-out;
+}
+
+.search-input:focus{
+  outline: none;
+  border: 2px solid #1775f1;
+}
+
+.search-input::placeholder{
+  color: #c8cbcf;
+}
+
+/* arttırma azaltma spinnerın gizlenmesi için yazılan kod bloğu choreme edge operada geçerlidir */
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox için geçerli olan */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
+/* Buton stilini belirle */
+.search-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #1775f1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  border-radius: 20px;
+  margin-top: 40px;
+  width: 150px;
+  transition: all 0.4s ease-in-out;
+}
+
+.search-button:hover {
+  background-color: white;
+  color: #1775f1;
+  border: 1px solid #1775f1;
+}
+
+.search{
+  width: 100%;
+  background-color: white;
+  border-radius: 20px;
+  height: 500px;
+  box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.3);
+}
+
+
+.main-content .search .info{
+  color: black;
+}
+
+
+.infodiv .info{
+  text-align: center;
+  font-size: 25px;
+}
+
+.infodiv .info2{
+  text-align: center;
+  font-size: 15px;
+  color: #c3c4c7;
+  margin-bottom: 80px;
+}
+
+
+/* Neden Biz İçeriğinin yazılması */
+.whyus{
+  padding: 30px;
+  border-radius: 20px;
+  background-color: white;
+  height: auto;
+  margin-bottom: 100px;
+  margin-top: 100px;
+  box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; /* Kutular arasına eşit boşluk koyar */
+  align-items: center; /* Dikeyde ortalar */
+}
+
+.container
+{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+
+.box{
+  width: 300px;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  height: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Hafif gölge efekti */
+  transition: all 0.5s ease;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.box:hover{
+  background-color: #1775f1;
+  color: white;
+  width: 350px;
+  font-size: 18px
+}
+
+.baslik{
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.yazi{
+  text-align: center;
+}
+
+.whyusyazi{
+  font-weight: 600;
+  font-size: 30px;
+  text-decoration: underline;
+  text-decoration-color: #1775f1;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+/* ---------------------------------------------------------------------------------------------- */
+/* RESPONSİVE TASARIM  */
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #site {
+    margin-left: 0; /* Mobil görünümde margin'i kaldır */
+    margin-top: 20px; /* Üstten biraz boşluk ekle */
+  }
+
+  .footer-section {
+    margin: 15px 0; /* Üst ve alt boşluk */
+    text-align: center; /* Mobilde metni ortala */
+  }
+
+  .footer-section h3 {
+    text-align: center;
+    text-decoration: underline;
+  }
+}

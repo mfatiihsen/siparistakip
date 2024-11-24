@@ -31,11 +31,10 @@ if (isset($_POST['admingiris'])) {
 
     $var = $kullanicisor->rowCount();
     if ($var > 0) {
-        # code...
         $_SESSION['girisbelgesi'] = $kadi;
-        header('Location:../index.php?giris=basarili');
+        header('Location:../pages/home/index.php');
     } else {
-        header('Location:../loginpage/login.php?giris=basarisiz');
+        header('Location:pages/loginpage/login.php?giris=basarisiz');
     }
 }
 
@@ -178,7 +177,7 @@ if (isset($_POST['siparisekle'])) {
 
     $var = $siparissor->rowCount();
     if ($var > 0) {
-        header("Location:../siparis_ekle.php");
+        header("Location:../pages/orders/siparis_ekle.php");
         exit();
     } else {
         $siparisekle = $baglanti->prepare(
@@ -217,7 +216,7 @@ if (isset($_POST['siparisekle'])) {
                         icon: 'success',
                         button: 'Tamam'
                     }).then(function() {
-                        window.location = '../siparis_ekle.php';
+                        window.location = '../pages/orders/siparis_ekle.php';
                     });
                 });
                 </script>";
@@ -230,7 +229,7 @@ if (isset($_POST['siparisekle'])) {
                         icon: 'error',
                         button: 'Tamam'
                     }).then(function() {
-                        window.location = '../siparis_ekle.php';
+                        window.location = '../pages/orders/siparis_ekle.php';
                     });
                 });
                 </script>";
@@ -244,7 +243,7 @@ if (isset($_POST['siparisekle'])) {
                     icon: 'error',
                     button: 'Tamam'
                 }).then(function() {
-                    window.location = '../siparis_ekle.php';
+                    window.location = '../pages/orders/siparis_ekle.php';
                 });
             });
             </script>";

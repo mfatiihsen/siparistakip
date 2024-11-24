@@ -1,0 +1,257 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+.container{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    max-width: 1300px;
+}
+
+.container-info{
+    display: flex;
+    flex-direction: column; /* Alt alta hizala */
+    align-items: center;    /* Ortalamak için */
+    text-align: center;
+    gap: 10px;           
+    margin-bottom: 80px;
+}
+
+
+.info-baslik{
+    color: gray;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.order-details-container {
+    background-color: #fff;
+    width: 80%;
+    max-width: 1000px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    align-items: center;
+    display: grid;
+    margin-top: 100px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 0px;
+}
+
+/* Sipariş durumu */
+.order-status {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.status-item {
+    text-align: center;
+    flex: 1;
+    min-width: 50px;
+}
+
+.status-item img {
+    width: 50px;
+    height: 50px;
+}
+
+.status-item p {
+    font-size: 1.1em;
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Sipariş bilgileri */
+.order-info {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    min-width: 280px;
+}
+
+.order-info h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.order-info p {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+
+
+/* Çizgi */
+
+
+.cizgi1,.cizgi2,.cizgi3{
+    background-color: black;
+    height: 5px;
+    width: 200px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    place-items: center;
+    margin-top: 30px;
+}
+
+
+
+
+/* Sipariş detyaları tasarımı  */
+
+.order{
+    flex-wrap: wrap;
+    background-color: #f9f9f9;
+    align-items: row;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+h3{
+    text-align: left;
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+
+
+/* Sipariş Harektleri  */
+
+.container2 {
+    width: 100%;
+    margin: auto;
+}
+
+.toggle-row {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    background-color: #f4f4f4;
+    width: 100%;
+    border-radius: 25px;
+    margin-top: 30px;
+}
+
+
+.toggle-row:hover {
+    background-color: #e0e0e0;
+}
+
+.toggle-row .icon {
+    width: 20px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.toggle-row .icon.rotate {
+    transform: rotate(90deg);
+}
+.hidden-table {
+    display: none;
+    border: 1px solid #ddd;
+    margin: 0 0 20px;
+}
+.hidden-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.hidden-table th, .hidden-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+.hidden-table th {
+    background-color: #f0f0f0;
+}
+
+
+
+
+.backAna{
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+    .order-status {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .status-item {
+        flex: none;
+        min-width: 120px; /* Minimum genişlik */
+    }
+
+    .order {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .order-info {
+        width: 100%;
+    }
+
+    .cizgi1, .cizgi2, .cizgi3 {
+        display: none; /* Çizgiler dar ekranda kaldırılır */
+    }
+}
+
+@media (max-width: 480px) {
+
+    .order-status{
+        margin-top: 200px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .status-item img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .info-baslik {
+        font-size: 0.9em;
+    }
+
+    .toggle-row {
+        flex-direction: column;
+        text-align: center;
+    }
+}
