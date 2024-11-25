@@ -4,40 +4,21 @@ ob_start();
 ?>
 
 <main>
-    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-        <div class="col-md-6 col-lg-6">
-            <div class="card">
-                <div class="card-header text-center">
-                    <h4>GİRİŞ YAP</h4>
-                </div>
-                <div class="card-body">
-                    <form action="loginislem.php" method="POST">
-                        <p>Lütfen giriş bilgilerinizi doğru giriniz</p>
-                        <div class="form-group">
-                            <label for="loginEmail"></label>
-                            <div class="input-group">
-                                <input name="mail" type="email" class="form-control" id="loginEmail" placeholder="Mail Giriniz">
-                            </div>
 
-                        </div>
-                        <div class="form-group">
-                            <label for="loginPassword"></label>
-                            <div class="input-group">
-                                <input name="pass" type="password" class="form-control" id="loginPassword"
-                                    placeholder="Parola Giriniz">
-                            </div>
-
-                        </div>
-                        <button type="submit" class="btn btn-block" id="girisButton" name="girisButton">Giriş</button>
-                        <div class="yazilar">
-                            <span class="hesapac">Henüz hesabın yok mu? <a class="hesaplink"
-                                    href="register.php">Buradan Aç</a></span>
-                        </div>
-                    </form>
-
-
-                </div>
+    <div class="container">
+        <div class="container-column">
+            <div class="title-text">
+                <h3>GİRİŞ YAP</h3>
             </div>
+            <form action="islem.php" method="POST">
+                <input name="mail" type="email" placeholder="Mail adresi giriniz" class="input-giris">
+                <input name="pass" type="password" placeholder="Şifre giriniz" class="input-giris">
+                <button type="submit" name="girisButton" class="btn-giris">Giriş</button>
+                <div class="hesapAc">
+                    <p>Henüz hesabın yok mu?<a href="register.php" style="text-decoration: none;"> Hesap Aç</a></p>
+                    
+                </div>
+            </form>
         </div>
     </div>
 

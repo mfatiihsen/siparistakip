@@ -1,3 +1,16 @@
+<?php
+require_once '../../islem/baglanti.php';
+
+$siparis = $baglanti->prepare("SELECT * FROM siparis where siparis_id=:siparis_id");
+$siparis->execute(
+    array(
+        'siparis_id' => $_GET['id']
+    )
+);
+$sipariscek = $siparis->fetch(PDO::FETCH_ASSOC);
+?>
+
+
 <!DOCTYPE html>
 <html lang="tr">
 
@@ -9,7 +22,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Admin Paneli-Sipariş Ekle</title>
+    <title>Sipariş Düzenle</title>
     <link rel="stylesheet" href="../../assets/css/style.css">
 
 
@@ -29,9 +42,7 @@
         .btn {
             background-color: #1775f1;
             border-radius: 25px;
-            width: 150px;
-            height: 40px;
-            margin-top: 20px;
+            width: 100px;
         }
 
         .btn:hover {
@@ -39,11 +50,6 @@
             color: #1775f1;
             border: 1px solid #1775f1
         }
-
-        .form-check{
-            margin-top: 40px;
-        }
-
     </style>
 </head>
 
@@ -67,7 +73,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label"></label>
-                        <input name="adres" placeholder="Sipariş Adresi:" type="text" class="form-control"
+                        <input value="<?php echo $sipariscek['siparis_adres'] ?>" name="adres" placeholder="Sipariş Adresi:" type="text" class="form-control"
                             id="exampleInputEmail1" aria-describedby="emailHelp">
                         <div id="emailHelp" class="form-text"></div>
                     </div>
@@ -83,35 +89,43 @@
                             id="tarih" aria-describedby="emailHelp">
                         <div id="emailHelp" class="form-text"></div>
                     </div>
+                    <input type="hidden" name="id" value="<?php echo $sipariscek['siparis_id'] ?>">
+
+
                     <div class="form-floating pb-4">
-                        <select name="durum" class="form-select" id="floatingSelect"
+                        <select required name="yeni_durum" class="form-select" id="floatingSelect"
                             aria-label="Floating label select example">
-                            <option selected>Sipariş Durumu:</option>
-                            <option value="TESLİM ALINDI" selected="selected">Teslim Alındı</option>
+                            <option selected style="font-weight: 400;">Yeni Sipariş Durumu:</option>
+                            <option value="YOLDA" <?php if ($sipariscek['siparis_durum'] == '  YOLDA') echo 'selected'; ?>>Yolda</option>
+                            <option value="DAĞITIMDA" <?php if ($sipariscek['siparis_durum'] == 'DAĞITIMDA') echo 'selected'; ?>>Dağıtımda</option>
+                            <option value="TESLİM EDİLDİ" <?php if ($sipariscek['siparis_durum'] == 'TESLİM EDİLDİ') echo 'selected'; ?>>Teslim Edildi</option>
                         </select>
                         <label for="floatingSelect"></label>
                     </div>
+
+
+
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label"></label>
-                        <input required name="adisoyadi" placeholder="Alıcı Adı ve Soyadı:" type="text"
+                        <input value="<?php echo $sipariscek['alici_adi_soyadi'] ?>" required name="adisoyadi" placeholder="Alıcı Adı ve Soyadı:" type="text"
                             class="form-control" id="exampleInputPassword1">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label"></label>
-                        <input required name="telefon" placeholder="Alıcı Telefon Numarası:" type="text"
+                        <input value="<?php echo $sipariscek['alici_tel'] ?>" required name="telefon" placeholder="Alıcı Telefon Numarası:" type="text"
                             class="form-control" id="exampleInputPassword1">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label"></label>
-                        <input required name="mail" placeholder="Alıcı Mail:" type="text" class="form-control"
+                        <input value="<?php echo $sipariscek['alici_mail'] ?>" required name="mail" placeholder="Alıcı Mail:" type="text" class="form-control"
                             id="exampleInputPassword1">
                     </div>
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Bilgilerin doğru olduğuna eminim</label>
+                        <label class="form-check-label" for="exampleCheck1">BİLGİLERİN DOĞRU OLDUĞUNA EMİNİM</label>
                     </div>
 
-                    <button type="submit" class="btn btn-primary" name="siparisekle" id="submitBtn">Ekle</button>
+                    <button type="submit" class="btn btn-primary" name="sipariguncelle" id="submitBtn">Güncelle</button>
                 </form>
             </div>
 
@@ -129,7 +143,6 @@
 
 
 <script>
-
     let currentDate = new Date();
 
     // saati bilgilerini alıyoruz
@@ -150,26 +163,26 @@
     document.getElementById('tarih').value = dateString;
 
     // rastgele takip numarası oluşturuyoruz.
-    document.addEventListener('DOMContentLoaded', function () {
-    let randomNumber = Math.floor(10000000000 + Math.random() * 90000000000); 
-    console.log("Rastgele takip numarası: " + randomNumber);  
-    document.getElementById('takipno').value = randomNumber;
+    document.addEventListener('DOMContentLoaded', function() {
+        let randomNumber = Math.floor(10000000000 + Math.random() * 90000000000);
+        console.log("Rastgele takip numarası: " + randomNumber);
+        document.getElementById('takipno').value = randomNumber;
 
-    // Formun submit olayına müdahale et
-    document.querySelector('form').addEventListener('submit', function (event) {
-        let takipNo = document.getElementById('takipno').value;
-        console.log("Formdaki takip numarası: " + takipNo);  
-        if (!takipNo) {
-            document.getElementById('takipno').value = randomNumber;
-            console.log("Takip numarası ekleniyor: " + randomNumber);  
-        }
+        // Formun submit olayına müdahale et
+        document.querySelector('form').addEventListener('submit', function(event) {
+            let takipNo = document.getElementById('takipno').value;
+            console.log("Formdaki takip numarası: " + takipNo);
+            if (!takipNo) {
+                document.getElementById('takipno').value = randomNumber;
+                console.log("Takip numarası ekleniyor: " + randomNumber);
+            }
+        });
     });
-});
 
 
-
+    /*
     // check box kontrolü
-    document.getElementById("submitBtn").addEventListener("click", function (event) {
+    document.getElementById("submitBtn").addEventListener("click", function(event) {
         let checkbox = document.getElementById("exampleCheck1");
 
         if (!checkbox.checked) {
@@ -179,12 +192,12 @@
                 text: 'Lütfen bilgilerin doğru olduğundan emin olun!',
                 icon: 'error',
                 button: 'Tamam'
-            }).then(function () {
+            }).then(function() {
                 window.location = 'siparis_ekle.php';
             });
         }
     });
-
+    */
 </script>
 
 </html>

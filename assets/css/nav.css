@@ -30,7 +30,7 @@
 }
 
 .navbar-brand {
-  font-weight: 500;
+  font-weight: 300;
   color: #1775f1;
   font-size: 24px;
   transition: 0.3s color;
@@ -62,15 +62,17 @@
   outline: none;
 }
 
-.nav-link {
+.navbar .nav-link {
   color: #666777;
   font-weight: 600;
   position: relative;
 }
 
+
 .nav-link:hover,
 .nav-link.active {
   color: #000;
+  font-weight: 700;
 }
 
 @media (min-width: 991px) {

@@ -30,6 +30,7 @@ if (isset($_GET['takip_numarasi'])) {
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <link rel="stylesheet" href="detay.css">
+     <link rel="icon" href="../assets/images/logo.png" type="image/png">>
 </head>
 
 <body>
@@ -94,25 +95,25 @@ if (isset($_GET['takip_numarasi'])) {
                                 <thead>
                                     <tr>
                                         <th>Durum</th>
-                                        <th>Saat</th>
+                                        <th>Tarih-Saat</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>Teslim Alma</td>
-                                        <td><?php echo $siparis['siparis_saat'] ?></td>
+                                        <td><?php echo $siparis['siparis_tarih']."   ". $siparis['siparis_saat'] ?></td>
                                     </tr>
                                     <tr>
                                         <td>Transfer</td>
-                                        <td><?php echo $siparis['siparis_saat'] ?></td>
+                                        <td><?php echo $siparis['yolda_tarih'] ?></td>
                                     </tr>
                                     <tr>
                                         <td>Dağıtım</td>
-                                        <td><?php echo $siparis['siparis_saat'] ?></td>
+                                        <td><?php echo $siparis['dagitim_tarih'] ?></td>
                                     </tr>
                                     <tr>
                                         <td>Teslim Edilme</td>
-                                        <td><?php echo $siparis['siparis_saat'] ?></td>
+                                        <td><?php echo $siparis['teslim_tarih'] ?></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -156,23 +157,23 @@ if (isset($_GET['takip_numarasi'])) {
         document.getElementById("cizgi2").style.backgroundColor = "#FCC419";
         document.getElementById("cizgi1").style.backgroundColor = "#339AF0";
         document.getElementById("teslimedildi").src =
-            "../images/icons/teslimedildigreen.png";
+            "../assets/images/icons/teslimedildigreen.png";
         document.getElementById("dagitimda").src =
-            "../images/icons/dagitimdaorange.png";
+            "../assets/images/icons/dagitimdaorange.png";
         document.getElementById("teslimalindi").src =
-            "../images/icons/teslimalindired.png";
-        document.getElementById("yolda").src = "../images/icons/yoldablue.png";
+            "../assets/images/icons/teslimalindired.png";
+        document.getElementById("yolda").src = "../assets/images/icons/yoldablue.png";
     }
 
     if (value == "TESLİM ALINDI") {
         document.getElementById("info-baslik").innerHTML =
             "Siparişiniz şubemiz tarafından teslim alınmıştır.";
         document.getElementById("teslimalindi").src =
-            "../images/icons/teslimalindired.png";
-        document.getElementById("dagitimda").src = "../images/icons/dagitimda.png";
+            "../assets/images/icons/teslimalindired.png";
+        document.getElementById("dagitimda").src = "../assets/images/icons/dagitimda.png";
         document.getElementById("teslimedildi").src =
-            "../images/icons/teslimedildi.png";
-        document.getElementById("yolda").src = "../images/icons/yolda.png";
+            "../assets/images/icons/teslimedildi.png";
+        document.getElementById("yolda").src = "../assets/images/icons/yolda.png";
     }
 
     if (value == "DAĞITIMDA") {
@@ -181,24 +182,24 @@ if (isset($_GET['takip_numarasi'])) {
         document.getElementById("cizgi2").style.backgroundColor = "#FCC419";
         document.getElementById("cizgi1").style.backgroundColor = "#339AF0";
         document.getElementById("dagitimda").src =
-            "../images/icons/dagitimdaorange.png";
+            "../assets/images/icons/dagitimdaorange.png";
         document.getElementById("teslimalindi").src =
-            "../images/icons/teslimalindired.png";
+            "../assets/images/icons/teslimalindired.png";
         document.getElementById("teslimedildi").src =
-            "../images/icons/teslimedildi.png";
-        document.getElementById("yolda").src = "../images/icons/yoldablue.png";
+            "../assets/images/icons/teslimedildi.png";
+        document.getElementById("yolda").src = "../assets/images/icons/yoldablue.png";
     }
 
     if (value == "YOLDA") {
         document.getElementById("info-baslik").innerHTML =
             "Siparişiniz transfer aşamasındadır.";
         document.getElementById("cizgi1").style.backgroundColor = "#339AF0";
-        document.getElementById("yolda").src = "../images/icons/yoldablue.png";
-        document.getElementById("dagitimda").src = "../images/icons/dagitimda.png";
+        document.getElementById("yolda").src = "../assets/images/icons/yoldablue.png";
+        document.getElementById("dagitimda").src = "../assets/images/icons/dagitimda.png";
         document.getElementById("teslimedildi").src =
-            "../images/icons/teslimedildi.png";
+            "../assets/images/icons/teslimedildi.png";
         document.getElementById("teslimalindi").src =
-            "../images/icons/teslimalindired.png";
+            "../assets/images/icons/teslimalindired.png";
     }
 </script>
 

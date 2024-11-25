@@ -7,3 +7,5 @@ $takip_numarasi  = $_GET['takip_numarasi'];
     $stmt = $baglanti->prepare("SELECT * FROM  siparis where siparis_takip_no = ?");
     $stmt->execute([$takip_numarasi]);
     $siparis = $stmt->fetch(PDO::FETCH_ASSOC);
+    $id=$siparis['siparis_id'];
+

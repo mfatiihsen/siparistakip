@@ -57,7 +57,6 @@
                         <th>AD-SOYAD</th>
                         <th>TELEFON</th>
                         <th>MAIL</th>
-                        <th>DÜZENLE</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -77,7 +76,6 @@
                             <td><?php echo $sipariscek['alici_adi_soyadi'] ?></td>
                             <td><?php echo $sipariscek['alici_tel'] ?></td>
                             <td><?php echo $sipariscek['alici_mail'] ?></td>
-                            <td><button class="btn-duzenle">></button></td>
                         </tr>
 
                     <?php } ?>

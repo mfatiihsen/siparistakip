@@ -119,7 +119,6 @@ $siparisler = $siparis->fetchAll(PDO::FETCH_ASSOC);
                         <th>AD-SOYAD</th>
                         <th>TELEFON</th>
                         <th>MAIL</th>
-                        <th>DÜZENLE</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -138,7 +137,6 @@ $siparisler = $siparis->fetchAll(PDO::FETCH_ASSOC);
                                 <td><?php echo htmlspecialchars($sipariscek['alici_adi_soyadi']); ?></td>
                                 <td><?php echo htmlspecialchars($sipariscek['alici_tel']); ?></td>
                                 <td><?php echo htmlspecialchars($sipariscek['alici_mail']); ?></td>
-                                <td><button class="btn-duzenle">></button></td>
                             </tr>
                     <?php
                         }

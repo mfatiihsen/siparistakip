@@ -1,34 +1,42 @@
+<?php
+$title = "Neden Biz? Ayarları";
+ob_start();
+?>
+
+<section id="content">
+	<main>
+		<div class="container">
+			<form action="../../islem/islem.php" method="POST">
+				<div class="mb-3">
+					<label for="exampleInputPassword1" class="form-label"></label>
+					<input value="" required name="adisoyadi" placeholder="1.Kutu" type="text"
+						class="form-control" id="exampleInputPassword1">
+				</div>
+				<div class="mb-3">
+					<label for="exampleInputPassword1" class="form-label"></label>
+					<input required name="telefon" placeholder="2.Kutu" type="text"
+						class="form-control" id="exampleInputPassword1">
+				</div>
+				<div class="mb-3">
+					<label for="exampleInputPassword1" class="form-label"></label>
+					<input required name="mail" placeholder="3.Kutu" type="text" class="form-control"
+						id="exampleInputPassword1">
+				</div>
+
+				<button type="submit" class="btn btn-primary" name="siparisekle" id="submitBtn">Ekle</button>
+			</form>
+		</div>
+
+	</main>
+
+</section>
 
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-	<link rel="stylesheet" href="../../assets/css/style.css">
-	<link rel="icon" href="../../assets/img/logo.png" type="image/png">
-	<title>AdminSite</title>
-</head>
-
-<body>
-
-	<?php require_once '../../includes/_sidebar.php' ?>
+</section>
 
 
 
-	<section id="content">
-		<?php require_once '../../includes/_navbar.php' ?>
-
-		
-	</section>
-
-
-
-
-	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-	<script src="../../assets/js/script.js"></script>
-</body>
-
-</html>
+<?php
+$content = ob_get_clean();
+include('../../includes/_layout.php');
+?>

@@ -1,4 +1,4 @@
-<?php require_once "islem/baglanti.php" ?>
+<?php require_once "../../islem/baglanti.php" ?>
 
 <!DOCTYPE html>
 <html lang="tr">
@@ -9,7 +9,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <title>Yönetici Listele</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
     <style>
@@ -76,12 +76,12 @@
 <body>
 
 
-    <?php require_once 'sidebar.php' ?>
+    <?php require_once '../../includes/_sidebar.php' ?>
 
     <section id="content">
 
 
-        <?php require_once 'navbar.php' ?>
+        <?php require_once '../../includes/_navbar.php' ?>
 
         <main>
             <table class="table table-light table-hover rounded">

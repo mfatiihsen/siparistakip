@@ -106,7 +106,7 @@ $uyeler = $uye->fetchAll(PDO::FETCH_ASSOC);
             <!-- Arama inputu -->
             <form action="#" method="get">
                 <div class="input-container">
-                    <input class="search" name="search" id="search" type="text" placeholder="Takip Numarası Giriniz:"
+                    <input class="search" name="search" id="search" type="text" placeholder="Arama İstediğiniz Kişi:"
                         value="<?php echo htmlspecialchars($searchQuery); ?>">
                     <i class="fa fa-search"></i>
                 </div>

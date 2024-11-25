@@ -14,7 +14,7 @@ ob_start();
                     <p class="info">Siparişinizi takip etmek için takip numarası ile arama yapınız.</p>
                     <p class="info2">Lütfen sipariş numaranızı doğru giriniz!</p>
                 </div>
-                <form action="detail/detail.php" method="GET">
+                <form action="views/detail.php" method="GET">
                     <input maxlength="11" type="number" class="search-input" name="takip_numarasi" placeholder="Sipariş Takip numarası..." required>
                     <button class="search-button" name="gonder" type="submit">Ara</button>
                 </form>

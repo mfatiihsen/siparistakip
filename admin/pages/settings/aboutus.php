@@ -1,33 +1,46 @@
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-	<link rel="stylesheet" href="../../assets/css/style.css">
-	<link rel="icon" href="../../assets/img/logo.png" type="image/png">
-	<title>AdminSite</title>
-</head>
-
-<body>
-
-	<?php require_once '../../includes/_sidebar.php' ?>
+<?php
+$title = "Hakkımızda Ayarları";
+ob_start();
+?>
 
 
 
-	<section id="content">
-		<?php require_once '../../includes/_navbar.php' ?>
+<section id="content">
 
-	</section>
+	<main>
+		<div class="container">
+			<form action="../../islem/islem.php" method="POST">
+
+				<div class="mb-3">
+					<label for="exampleInputPassword1" class="form-label"></label>
+					<input required name="adisoyadi" placeholder="Alıcı Adı ve Soyadı:" type="text"
+						class="form-control" id="exampleInputPassword1">
+				</div>
+				<div class="mb-3">
+					<label for="exampleInputPassword1" class="form-label"></label>
+					<input required name="telefon" placeholder="Alıcı Telefon Numarası:" type="text"
+						class="form-control" id="exampleInputPassword1">
+				</div>
+				<div class="mb-3">
+					<label for="exampleInputPassword1" class="form-label"></label>
+					<input required name="mail" placeholder="Alıcı Mail:" type="text" class="form-control"
+						id="exampleInputPassword1">
+				</div>
+				<div class="mb-3 form-check">
+					<input type="checkbox" class="form-check-input" id="exampleCheck1">
+					<label class="form-check-label" for="exampleCheck1">Bilgilerin doğru olduğuna eminim</label>
+				</div>
+
+				<button type="submit" class="btn btn-primary" name="siparisekle" id="submitBtn">Ekle</button>
+			</form>
+		</div>
+
+	</main>
+
+</section>
 
 
-
-
-	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-	<script src="../../assets/js/script.js"></script>
-</body>
-
-</html>
+<?php
+$content = ob_get_clean();
+include('../../includes/_layout.php');
+?>

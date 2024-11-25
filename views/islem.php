@@ -3,7 +3,7 @@
 
 <?php
 
-require_once '../admin/islem/baglanti.php';
+require_once '../config/database.php';
 
 // Giriş Yapmak için yazılan kod bloğu
 if (isset($_POST['girisButton'])) {
@@ -69,7 +69,7 @@ if (isset($_POST['kayitButton'])) {
             document.addEventListener('DOMContentLoaded', function() {
                 swal({
                     title: 'Başarılı!',
-                    text: 'Kullanıcı başarıyla eklendi.',
+                    text: 'Kayıt Olma işlemi Başarılı.',
                     icon: 'success',
                     button: 'Tamam'
                 }).then(function() {
@@ -82,7 +82,7 @@ if (isset($_POST['kayitButton'])) {
             document.addEventListener('DOMContentLoaded', function() {
                 swal({
                     title: 'Hata!',
-                    text: 'Kullanıcı Eklenirken bir hata oluştu.',
+                    text: 'Kayıt Oluşturulurken bir hata oluştu.',
                     icon: 'error',
                     button: 'Tamam'
                 }).then(function() {

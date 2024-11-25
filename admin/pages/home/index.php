@@ -7,7 +7,7 @@
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="../../assets/css/style.css">
 	<link rel="icon" href="../../assets/img/logo.png" type="image/png">
-	<title>AdminSite</title>
+	<title>Yönetici Paneli</title>
 </head>
 
 <body>

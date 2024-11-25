@@ -207,7 +207,7 @@ if (isset($_POST['siparisekle'])) {
             ));
 
             if ($insert) {
-                sendEmail($mail, $adsoyad, $takipno);
+                //sendEmail($mail, $adsoyad, $takipno);
                 echo "<script>
                 document.addEventListener('DOMContentLoaded', function() {
                     swal({
@@ -293,6 +293,68 @@ function sendEmail($email, $adsoyad, $siparisno)
         return "Mail Başarıyla gönderildi";
     } catch (Exception $e) {
         return "Mail gönderilemedi. Hata: {$mail->ErrorInfo}";
+    }
+}
+
+
+// sipariş güncelleme işlemi için yazılmıştır
+
+if (isset($_POST['sipariguncelle'])) {
+    $siparisid = $_POST['id'];
+    $yeniDurum = $_POST['yeni_durum'];
+    $now = date('Y-m-d H:i:s');
+
+    $durumAlanlari = [
+        'YOLDA' => 'yolda_tarih',
+        'DAĞITIMDA' => 'dagitim_tarih',
+        'TESLİM EDİLDİ' => 'teslim_tarih',
+    ];
+
+    $alan = isset($durumAlanlari[$yeniDurum]) ? $durumAlanlari[$yeniDurum] : null;
+
+    if ($alan) {
+        $duzenle = $baglanti->prepare("UPDATE siparis SET 
+            siparis_adres=:siparis_adres,
+            siparis_durum=:siparis_durum,
+            alici_adi_soyadi=:alici_adi_soyadi,
+            alici_tel=:alici_tel,
+            alici_mail=:alici_mail,
+            $alan=:durum_tarih
+            WHERE siparis_id=:siparis_id");
+
+        $update = $duzenle->execute([
+            'siparis_adres' => $_POST['adres'],
+            'siparis_durum' => $yeniDurum,
+            'alici_adi_soyadi' => $_POST['adisoyadi'],
+            'alici_tel' => $_POST['telefon'],
+            'alici_mail' => $_POST['mail'],
+            'durum_tarih' => $now,
+            'siparis_id' => $siparisid,
+        ]);
+    } else {
+        // Eğer durum geçerli değilse sadece diğer bilgileri güncelle
+        $duzenle = $baglanti->prepare("UPDATE siparis SET 
+            siparis_adres=:siparis_adres,
+            siparis_durum=:siparis_durum,
+            alici_adi_soyadi=:alici_adi_soyadi,
+            alici_tel=:alici_tel,
+            alici_mail=:alici_mail
+            WHERE siparis_id=:siparis_id");
+
+        $update = $duzenle->execute([
+            'siparis_adres' => $_POST['adres'],
+            'siparis_durum' => $yeniDurum,
+            'alici_adi_soyadi' => $_POST['adisoyadi'],
+            'alici_tel' => $_POST['telefon'],
+            'alici_mail' => $_POST['mail'],
+            'siparis_id' => $siparisid,
+        ]);
+    }
+
+    if ($update) {
+        header("Location:../pages/orders/devam_eden_siparis.php");
+    } else {
+        header("Location:../pages/orders/order_update.php");
     }
 }
 

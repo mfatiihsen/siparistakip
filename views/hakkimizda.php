@@ -9,17 +9,17 @@ ob_start();
 <main class="container-main">
     <section class="about">
         <h2>Hakkımızda</h2>
-        <p>
+        <p class="hakyazi">
             Sipariş Takip Sistemi, müşterilerimizin sipariş süreçlerini hızlı ve sorunsuz bir şekilde yönetmelerine yardımcı olmak için tasarlanmış bir web uygulamasıdır.
         </p>
     </section>
     <section class="mission">
         <h2>Misyonumuz</h2>
-        <p>
+        <p class="hakyazi">
             Kullanıcıların sipariş yönetiminde şeffaflık ve hız sağlamayı amaçlıyoruz.
         </p>
         <h2>Vizyonumuz</h2>
-        <p>
+        <p class="hakyazi">
             Teknolojik yeniliklerle müşteri memnuniyetini artırmayı hedefliyoruz.
         </p>
     </section>

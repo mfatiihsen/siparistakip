@@ -141,7 +141,7 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
                             <td><?php echo $sipariscek['alici_adi_soyadi'] ?></td>
                             <td><?php echo $sipariscek['alici_tel'] ?></td>
                             <td><?php echo $sipariscek['alici_mail'] ?></td>
-                            <td><button class="btn-duzenle">Düzenle</button></td>
+                            <td><a href="order_update.php?id=<?php echo $sipariscek['siparis_id'] ?>"><button class="btn-duzenle">Düzenle</button></a></td>
                         </tr>
                     <?php } ?>
                 </tbody>

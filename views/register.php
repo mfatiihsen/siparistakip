@@ -1,34 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+$title = "Kayıt Ol";
+ob_start();
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kayıt Ol</title>
+<main>
 
-    <link rel="stylesheet" href="../assets/css/register.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/nav.css">
-    <link rel="stylesheet" href="../assets/css/footer.css">
+    <div class="container">
+        <div class="container-column">
+            <div class="title-text">
+                <h3>KAYIT OL</h3>
+            </div>
+            <form action="islem.php" method="POST">
+                <input name="mail" type="email" placeholder="Mail adresi giriniz" class="input-giris">
+                <input name="adsoyad" type="text" placeholder="Ad ve Soyad giriniz" class="input-giris">
+                <input name="pass" type="password" placeholder="Şifre giriniz" class="input-giris">
+                <button type="submit" name="kayitButton" class="btn-giris">Kayıt Ol</button>
+                <div class="hesapAc">
+                    <p>Hesabın var mı?<a href="login.php" style="text-decoration: none;"> Giriş Yap</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
 
-    <!-- Bootstrap Linki -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rstylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-</head>
-
-<body style="background-color: #f1f1f1;">
-
-    <?php require_once '../includes/_navbar.php' ?>
-
-    
-
-
-    <?php require_once '../includes/_footer.php' ?>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
-</html>
+<?php
+$content = ob_get_clean();
+include('../includes/_layout.php');
+?>
