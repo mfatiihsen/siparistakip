@@ -3,9 +3,7 @@ $title = "Hakkımızda";
 ob_start();
 ?>
 
-<header class="header">
-    <h1></h1>
-</header>
+<div class="container-renk2"></div>
 <main class="container-main">
     <section class="about">
         <h2>Hakkımızda</h2>

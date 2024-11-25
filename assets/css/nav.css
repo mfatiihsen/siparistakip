@@ -75,6 +75,13 @@
   font-weight: 700;
 }
 
+
+.container-renk{
+  width: 100%;
+  height: 5px;
+  background-color: #1775f1;
+}
+
 @media (min-width: 991px) {
   .nav-link::before {
     content: "";
@@ -95,3 +102,5 @@
     visibility: visible;
   }
 }
+
+

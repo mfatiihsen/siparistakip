@@ -4,11 +4,11 @@
 /* style.css */
 
 
-.header {
+.container-renk2 {
     background: #1775f1;
     color: white;
-    padding: 15px 20px;
     text-align: center;
+    height: 5px;
 }
 
 .hakYazi{
