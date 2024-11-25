@@ -11,12 +11,13 @@
 
     <section id="content">
         <?php include('_navbar.php'); ?>
+        <?php
+        echo $content;
+        ?>
+
 
     </section>
 
-    <?php
-    echo $content;
-    ?>
 
     <?php include('_script.php'); ?>
 

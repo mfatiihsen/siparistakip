@@ -2,11 +2,11 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-<script src="../../assets/js/script.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="../../assets/js/script.js"></script>
+
+
 
 
 
@@ -209,4 +209,44 @@
 
     var chart = new ApexCharts(document.querySelector("#chart"), options);
     chart.render();
+</script>
+
+
+
+
+<script>
+    // Durum metnini renklendirme
+    var durumElements = document.querySelectorAll('.durum');
+    durumElements.forEach(function(durumElement) {
+        var durumYazi = durumElement.textContent.trim();
+        if (durumYazi === "TESLİM ALINDI") {
+            durumElement.style.color = "red";
+        } else if (durumYazi === "YOLDA") {
+            durumElement.style.color = "blue";
+        } else if (durumYazi === "DAĞITIMDA") {
+            durumElement.style.color = "orange";
+        } else if (durumYazi === "TESLİM EDİLDİ") {
+            durumElement.style.color = "green";
+        }
+    });
+
+
+
+    // Arama işlemi
+    $('#search').on('keyup', function() {
+        var searchQuery = $(this).val();
+
+        $.ajax({
+            url: '', // Aynı sayfada işlem yapıyoruz
+            method: 'GET',
+            data: {
+                search: searchQuery
+            },
+            success: function(response) {
+                // Tablodaki veriyi güncelle
+                var responseHtml = $(response).find('#orderTableBody').html();
+                $('#orderTableBody').html(responseHtml);
+            }
+        });
+    });
 </script>

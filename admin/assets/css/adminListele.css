@@ -1,0 +1,63 @@
+/* Tablonun kenarlarını yuvarlat */
+.table-container {
+  overflow-x: auto; /* Yatay kaydırma için */
+  border-radius: 10px;
+  width: 100%; 
+  margin: 0;
+  padding: 0;
+}
+
+.table {
+    margin-left: 0; /* Margini sıfırla */
+    width: 100%; /* Tablonun tam genişlikte olmasını sağla */
+}
+
+
+.btn-sil {
+  background-color: red;
+  color: white;
+  width: 100px;
+  border: none;
+  height: 30px;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
+.btn-sil:hover {
+  background-color: white;
+  color: red;
+  border: 1px solid red;
+}
+
+.btn-silinmez {
+  background-color: #1775f1;
+  color: white;
+  width: 100px;
+  border: none;
+  height: 30px;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
+.btn-sil:active {
+  border: 1px solid red;
+}
+
+/* Mobilde düğme ve metinler optimize */
+@media (max-width: 768px) {
+  .btn-sil,
+  .btn-silinmez {
+    width: 80px;
+    height: 25px;
+    font-size: 12px;
+  }
+
+  th,
+  td {
+    font-size: 12px;
+  }
+
+  .table-container {
+    padding: 0 10px;
+  }
+}

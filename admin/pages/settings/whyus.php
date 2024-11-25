@@ -3,7 +3,7 @@ $title = "Neden Biz? Ayarları";
 ob_start();
 ?>
 
-<section id="content">
+
 	<main>
 		<div class="container">
 			<form action="../../islem/islem.php" method="POST">
@@ -29,10 +29,7 @@ ob_start();
 
 	</main>
 
-</section>
 
-
-</section>
 
 
 

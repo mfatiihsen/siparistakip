@@ -1,0 +1,59 @@
+@font-face {
+    font-family: Poppins-Bold;
+    src: url("../fonts/poppins/Poppins-Bold.ttf");
+}
+
+.form-control {
+    border-radius: 25px;
+    /* Köşe yuvarlama */
+    padding: 25px;
+    transition: box-shadow 0.4s ease;
+}
+
+.form-control:focus {
+    background-color: white;
+    border: 1px solid #1775f1;
+    outline: none;
+    box-shadow: 0 0 5px #1775f1;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.75);
+}
+
+.container-ekle {
+    background-color: white;
+    width: 50%;
+    height: 800px;
+    padding: 50px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.ekle-btn {
+    color: white;
+    width: 150px;
+    height: 40px;
+    border-radius: 50px;
+    margin-top: 50px;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    background-color: #1775f1;
+    border: none;
+    justify-content: center;
+    text-align: center;
+    justify-items: center;
+    display: block;
+}
+
+.ekle-btn:hover {
+    background: white;
+    border: 1px solid #1775f1;
+    color: #1775f1;
+}
+
+h2 {
+    font-family: Poppins-Bold;
+    font-size: 24px;
+}
+
+.info {
+    color: #adaaaa;
+    font-size: 14px;
+}

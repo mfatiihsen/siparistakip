@@ -2,7 +2,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title><?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?></title>
-    <link rel="icon" href="../assets/images/logo.png" type="image/png">
+
+    <link rel="icon" href="../../assets/img/logo.png" type="image/png">
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
@@ -12,7 +13,12 @@
 
 
     <link rel="stylesheet" href="../../assets/css/style.css">
-
+    <link rel="stylesheet" href="../../assets/css/adminEkle.css">
+    <link rel="stylesheet" href="../../assets/css/adminListele.css">
+    <link rel="stylesheet" href="../../assets/css/customer.css">
+    <link rel="stylesheet" href="../../assets/css/devam_eden.css">
+    <link rel="stylesheet" href="../../assets/css/tum_siparis.css">
+    <link rel="stylesheet" href="../../assets/css/tamamlanan.css">
 
     <!-- FONTAWESOME Bağlantısı -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
