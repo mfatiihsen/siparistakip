@@ -21,6 +21,7 @@
   <link rel="stylesheet" type="text/css" href="css/util.css" />
   <link rel="stylesheet" type="text/css" href="login.css" />
   <!--===============================================================================================-->
+  <link rel="icon" href="../../assets/img/logo.png" type="image/png">
 </head>
 
 <body>
@@ -36,15 +37,15 @@
               <?php } else { ?>
               <p class="login-box-msg" style="color:gray"> Lütfen giriş bilgilerini giriniz
               <?php }
-            ?>
-            </p>
+              ?>
+              </p>
           </div>
 
-          <div class="wrap-input100 validate-input" data-validate="Kullanıcı Adını Giriniz">
-            <input class="input100" type="text" name="kadi" placeholder="Kullanıcı Adı" />
+          <div class="wrap-input100 validate-input" data-validate="Mail Adresi Giriniz">
+            <input class="input100" type="text" name="mail" placeholder="Mail Adresi Giriniz" />
             <span class="focus-input100"></span>
             <span class="symbol-input100">
-              <i class="fa fa-user" aria-hidden="true"></i>
+              <i class="fa fa-envelope" aria-hidden="true"></i>
             </span>
           </div>
 

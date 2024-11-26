@@ -33,7 +33,7 @@
 				<li><a href="../admins/admin_ekle.php">Yönetici Ekle</a></li>
 			</ul>
 		</li>
-		<li class="divider" data-text="site ayarlari">Ayarları</li>
+		<!-- <li class="divider" data-text="site ayarlari">Ayarları</li>
 		<li>
 			<a href="#" class="sidebar-link"><i class='bx bx-cog icon'></i>Site Ayarları <i class='bx bx-chevron-right icon-right'></i></a>
 			<ul class="side-dropdown">
@@ -41,6 +41,6 @@
 				<li><a href="../settings/aboutus.php">Hakkımızda</a></li>
 				<li><a href="../settings/communication.php">İletişim</a></li>
 			</ul>
-		</li>
+		</li> -->
 	</ul>
 </section>

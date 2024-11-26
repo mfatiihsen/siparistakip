@@ -2,7 +2,6 @@
 
 <?php
 
-session_start();
 require_once 'baglanti.php';
 
 
@@ -16,25 +15,31 @@ require '../PHPMailer/src/SMTP.php';
 
 
 # admin giriş işlemi
+session_start();
 if (isset($_POST['admingiris'])) {
 
-    $kadi = htmlspecialchars($_POST['kadi']);
+    $mail = htmlspecialchars($_POST['mail']);
     $pass = htmlspecialchars($_POST['password']);
     $strongpassword = md5($pass);
 
 
-    $kullanicisor = $baglanti->prepare("SELECT * from admin where admin_ka=:admin_ka and admin_parola=:admin_parola");
+    $kullanicisor = $baglanti->prepare("SELECT * from admin where admin_mail=:admin_mail and admin_parola=:admin_parola");
     $kullanicisor->execute(array(
-        'admin_ka' => $kadi,
+        'admin_mail' => $mail,
         'admin_parola' => $pass
     ));
 
     $var = $kullanicisor->rowCount();
     if ($var > 0) {
-        $_SESSION['girisbelgesi'] = $kadi;
+        $admin = $kullanicisor->fetch(PDO::FETCH_ASSOC);
+        $_SESSION['admin_adi'] = $admin['admin_adi'];
+        $_SESSION['admin_id'] = $admin['admin_id'];
+
+        $_SESSION['girisbelgesi'] = $mail;
+        $_SESSION['girisbelgesi'] = true;
         header('Location:../pages/home/index.php');
     } else {
-        header('Location:pages/loginpage/login.php?giris=basarisiz');
+        header('Location: ../pages/loginpage/login.php?giris=basarisiz');
     }
 }
 
@@ -149,12 +154,65 @@ if (isset($_GET['adminsil'])) {
     }
 }
 
+// oturum kapatma işlemi
+if (isset($_POST['logout'])) {
+    session_start();
+    session_unset();
+    session_destroy();
+    header('Location: ../pages/loginpage/login.php'); // Giriş sayfasına yönlendirme
+    exit;
+}
+
+
+// admin parola değiştirme işlemi
+if (isset($_POST['resetPass'])) {
+
+    $oldpass = $_POST['oldpass'];
+    $newpass = $_POST['newpass'];
+    $confirmpass = $_POST['confirmpass'];
+
+
+    $admin_id = $_SESSION['admin_id'];
+
+    // 1. Adım: Eski şifreyi kontrol et (veritabanında kaydedilen şifre ile)
+    $query = $baglanti->prepare("SELECT admin_parola FROM admin WHERE admin_id = :admin_id");
+    $query->execute(['admin_id' => $admin_id]);
+    $result = $query->fetch();
+
+    // Eski şifre veritabanında şifrelenmiş şekilde kaydedildiği için MD5 ya da başka bir hash fonksiyonu kullanarak kontrol et
+    if ($oldpass != $result['admin_parola']) {
+        echo "Eski şifre yanlış!";
+        exit;
+    }
+
+    // 2. Adım: Yeni şifreyi ve onay şifresini kontrol et
+    if ($newpass !== $confirmpass) {
+        echo "Yeni şifreler uyuşmuyor!";
+        exit;
+    }
+
+
+    // 4. Adım: Yeni şifreyi şifrele ve veritabanında güncelle
+    $newpass_hash = $newpass;  // Yeni şifreyi MD5 ile şifreleyelim (alternatif olarak bcrypt de kullanılabilir)
+
+    $updateQuery = $baglanti->prepare("UPDATE admin SET admin_parola = :newpass WHERE admin_id = :admin_id");
+    $updateQuery->execute([
+        'newpass' => $newpass_hash,
+        'admin_id' => $admin_id
+    ]);
+
+    if ($updateQuery) {
+        header("Location:../pages/home/index.php");
+    } else {
+        header("Location:../pages/loginpage/reset_pass.php");
+    }
+}
 
 
 
 
 
-//  SİPARİŞ İŞLEMLERİ -----------------------------------------
+// SİPARİŞ İŞLEMLERİ -----------------------------------------
 
 // siparis ekleme işlemi
 
@@ -170,7 +228,7 @@ if (isset($_POST['siparisekle'])) {
 
     echo "Veritabanına gönderilen takip numarası: " . $takipno;
 
-    $siparissor = $baglanti->prepare('SELECT *  from siparis where siparis_takip_no=:siparis_takip_no');
+    $siparissor = $baglanti->prepare('SELECT * from siparis where siparis_takip_no=:siparis_takip_no');
     $siparissor->execute(array(
         'siparis_takip_no' => $takipno
     ));
@@ -182,15 +240,15 @@ if (isset($_POST['siparisekle'])) {
     } else {
         $siparisekle = $baglanti->prepare(
             "INSERT into siparis SET
-                siparis_takip_no=:siparis_takip_no,
-                siparis_adres=:siparis_adres,
-                siparis_saat=:siparis_saat,
-                siparis_durum=:siparis_durum,
-                siparis_tarih=:siparis_tarih,
-                alici_adi_soyadi=:alici_adi_soyadi,
-                alici_tel=:alici_tel,
-                alici_mail=:alici_mail
-            "
+siparis_takip_no=:siparis_takip_no,
+siparis_adres=:siparis_adres,
+siparis_saat=:siparis_saat,
+siparis_durum=:siparis_durum,
+siparis_tarih=:siparis_tarih,
+alici_adi_soyadi=:alici_adi_soyadi,
+alici_tel=:alici_tel,
+alici_mail=:alici_mail
+"
         );
 
 
@@ -207,46 +265,46 @@ if (isset($_POST['siparisekle'])) {
             ));
 
             if ($insert) {
-                //sendEmail($mail, $adsoyad, $takipno);
+                sendEmail($mail, $adsoyad, $takipno);
                 echo "<script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    swal({
-                        title: 'Başarılı!',
-                        text: 'Sipariş başarıyla eklendi.',
-                        icon: 'success',
-                        button: 'Tamam'
-                    }).then(function() {
-                        window.location = '../pages/orders/siparis_ekle.php';
-                    });
-                });
-                </script>";
+    document.addEventListener('DOMContentLoaded', function() {
+        swal({
+            title: 'Başarılı!',
+            text: 'Sipariş başarıyla eklendi.',
+            icon: 'success',
+            button: 'Tamam'
+        }).then(function() {
+            window.location = '../pages/orders/siparis_ekle.php';
+        });
+    });
+</script>";
             } else {
                 echo "<script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    swal({
-                        title: 'Hata!',
-                        text: 'Sipariş Eklenirken bir hata oluştu.',
-                        icon: 'error',
-                        button: 'Tamam'
-                    }).then(function() {
-                        window.location = '../pages/orders/siparis_ekle.php';
-                    });
-                });
-                </script>";
+    document.addEventListener('DOMContentLoaded', function() {
+        swal({
+            title: 'Hata!',
+            text: 'Sipariş Eklenirken bir hata oluştu.',
+            icon: 'error',
+            button: 'Tamam'
+        }).then(function() {
+            window.location = '../pages/orders/siparis_ekle.php';
+        });
+    });
+</script>";
             }
         } catch (PDOException $e) {
             echo "<script>
-            document.addEventListener('DOMContentLoaded', function() {
-                swal({
-                    title: 'Veritabanı Hatası!',
-                    text: '" . $e->getMessage() . "',
-                    icon: 'error',
-                    button: 'Tamam'
-                }).then(function() {
-                    window.location = '../pages/orders/siparis_ekle.php';
-                });
-            });
-            </script>";
+    document.addEventListener('DOMContentLoaded', function() {
+        swal({
+            title: 'Veritabanı Hatası!',
+            text: '" . $e->getMessage() . "',
+            icon: 'error',
+            button: 'Tamam'
+        }).then(function() {
+            window.location = '../pages/orders/siparis_ekle.php';
+        });
+    });
+</script>";
         }
     }
 }
@@ -272,7 +330,7 @@ function sendEmail($email, $adsoyad, $siparisno)
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'ademfatih37@gmail.com';
-        $mail->Password = 'domr knrq vxch avsz';  // Burada uygulama şifresi kullanmalısınız
+        $mail->Password = 'domr knrq vxch avsz'; // Burada uygulama şifresi kullanmalısınız
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
         //$mail->charSet = 'UTF-8';
@@ -299,7 +357,7 @@ function sendEmail($email, $adsoyad, $siparisno)
 
 // sipariş güncelleme işlemi için yazılmıştır
 
-if (isset($_POST['sipariguncelle'])) {
+if (isset($_POST['siparisguncelle'])) {
     $siparisid = $_POST['id'];
     $yeniDurum = $_POST['yeni_durum'];
     $now = date('Y-m-d H:i:s');
@@ -313,14 +371,14 @@ if (isset($_POST['sipariguncelle'])) {
     $alan = isset($durumAlanlari[$yeniDurum]) ? $durumAlanlari[$yeniDurum] : null;
 
     if ($alan) {
-        $duzenle = $baglanti->prepare("UPDATE siparis SET 
-            siparis_adres=:siparis_adres,
-            siparis_durum=:siparis_durum,
-            alici_adi_soyadi=:alici_adi_soyadi,
-            alici_tel=:alici_tel,
-            alici_mail=:alici_mail,
-            $alan=:durum_tarih
-            WHERE siparis_id=:siparis_id");
+        $duzenle = $baglanti->prepare("UPDATE siparis SET
+siparis_adres=:siparis_adres,
+siparis_durum=:siparis_durum,
+alici_adi_soyadi=:alici_adi_soyadi,
+alici_tel=:alici_tel,
+alici_mail=:alici_mail,
+$alan=:durum_tarih
+WHERE siparis_id=:siparis_id");
 
         $update = $duzenle->execute([
             'siparis_adres' => $_POST['adres'],
@@ -333,13 +391,13 @@ if (isset($_POST['sipariguncelle'])) {
         ]);
     } else {
         // Eğer durum geçerli değilse sadece diğer bilgileri güncelle
-        $duzenle = $baglanti->prepare("UPDATE siparis SET 
-            siparis_adres=:siparis_adres,
-            siparis_durum=:siparis_durum,
-            alici_adi_soyadi=:alici_adi_soyadi,
-            alici_tel=:alici_tel,
-            alici_mail=:alici_mail
-            WHERE siparis_id=:siparis_id");
+        $duzenle = $baglanti->prepare("UPDATE siparis SET
+siparis_adres=:siparis_adres,
+siparis_durum=:siparis_durum,
+alici_adi_soyadi=:alici_adi_soyadi,
+alici_tel=:alici_tel,
+alici_mail=:alici_mail
+WHERE siparis_id=:siparis_id");
 
         $update = $duzenle->execute([
             'siparis_adres' => $_POST['adres'],
@@ -363,13 +421,13 @@ if (isset($_POST['sipariguncelle'])) {
 // Sipariş Arama İçin yazılmıştır
 
 if (isset($_POST['search'])) {
-    $aramaTermi = $_GET['arama'];  // Kullanıcıdan gelen arama terimi
+    $aramaTermi = $_GET['arama']; // Kullanıcıdan gelen arama terimi
 
     // Arama işlemi
     // Burada basit bir dizide arama yapalım.
     $sql = "SELECT * FROM siparisler WHERE siparis_takip_no LIKE ?";
     $stmt = $conn->prepare($sql);
-    $siparisTakipNoLike = "%" . $siparisTakipNo . "%";  // LIKE operatörü kullanarak arama yapılır
+    $siparisTakipNoLike = "%" . $siparisTakipNo . "%"; // LIKE operatörü kullanarak arama yapılır
     $stmt->bind_param("s", $siparisTakipNoLike);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -378,7 +436,13 @@ if (isset($_POST['search'])) {
     if ($result->num_rows > 0) {
         echo "<h3>Arama Sonuçları:</h3>";
         echo "<table>";
-        echo "<tr><th>Sipariş Takip No</th><th>Müşteri Adı</th><th>Ürün</th><th>Tarih</th><th>Durum</th></tr>";
+        echo "<tr>
+        <th>Sipariş Takip No</th>
+        <th>Müşteri Adı</th>
+        <th>Ürün</th>
+        <th>Tarih</th>
+        <th>Durum</th>
+    </tr>";
 
         // Her bir sonucu tabloya yazma
         while ($row = $result->fetch_assoc()) {

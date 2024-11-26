@@ -125,7 +125,7 @@ $sipariscek = $siparis->fetch(PDO::FETCH_ASSOC);
                         <label class="form-check-label" for="exampleCheck1">BİLGİLERİN DOĞRU OLDUĞUNA EMİNİM</label>
                     </div>
 
-                    <button type="submit" class="btn btn-primary" name="sipariguncelle" id="submitBtn">Güncelle</button>
+                    <button type="submit" class="btn btn-primary" name="siparisguncelle" id="submitBtn">Güncelle</button>
                 </form>
             </div>
 

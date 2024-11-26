@@ -10,7 +10,7 @@ ob_start();
         <div class="container-ekle mt-5">
             <h2 class="text-center mb-4">Admin Ekle</h2>
             <p class="info">Lütfen eklemek istediğiniz kişinin bilgilerini doğru giriniz</p>
-            <form action="islem/islem.php" method="post">
+            <form action="../../islem/islem.php" method="post">
                 <div class="mb-3">
                     <label for="name" class="form-label"></label>
                     <input required type="text" class="form-control" name="name" placeholder="İsim ">
