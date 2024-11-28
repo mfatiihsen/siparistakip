@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 26 Kas 2024, 19:36:16
+-- Üretim Zamanı: 28 Kas 2024, 23:32:07
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.0.30
 
@@ -120,21 +120,25 @@ CREATE TABLE `uyeler` (
   `uye_id` int(11) NOT NULL,
   `uye_adi_soyadi` varchar(256) NOT NULL,
   `uye_mail` varchar(256) NOT NULL,
-  `uye_password` varchar(256) NOT NULL
+  `uye_password` varchar(256) NOT NULL,
+  `uye_tel` varchar(20) NOT NULL,
+  `account_status` varchar(50) NOT NULL,
+  `uye_baslangict` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
 -- Tablo döküm verisi `uyeler`
 --
 
-INSERT INTO `uyeler` (`uye_id`, `uye_adi_soyadi`, `uye_mail`, `uye_password`) VALUES
-(1, 'Fatih ŞEN', 'ademfatih37@gmail.com', 'e10adc3949ba59abbe56e057f20f883e'),
-(2, 'Fatih ŞEN', 'fatiihsen37@gmail.com', 'e10adc3949ba59abbe56e057f20f883e'),
-(3, 'Adem ŞEN', 'ademsen37@gmail.com', 'e10adc3949ba59abbe56e057f20f883e'),
-(4, 'Yasemin ŞEN', 'yaseminsen@gmail.com', 'e10adc3949ba59abbe56e057f20f883e'),
-(5, 'Emre ŞEN', 'emresen@gmail.com', 'e10adc3949ba59abbe56e057f20f883e'),
-(6, 'mustafa şen', 'mustafacakir@gmail.com', 'e10adc3949ba59abbe56e057f20f883e'),
-(7, 'Rahmi ŞEN', 'rahmisen@gmail.com', 'e10adc3949ba59abbe56e057f20f883e');
+INSERT INTO `uyeler` (`uye_id`, `uye_adi_soyadi`, `uye_mail`, `uye_password`, `uye_tel`, `account_status`, `uye_baslangict`) VALUES
+(1, 'Fatih ŞEN', 'ademfatih37@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '05523378537', 'active', '2024-11-29 00:12:32'),
+(2, 'Fatih ŞEN', 'fatiihsen37@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '05523378537', 'active', '2024-11-29 00:12:32'),
+(3, 'Adem ŞEN', 'ademsen37@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '05523378537', 'active', '2024-11-29 00:12:32'),
+(4, 'Yasemin ŞEN', 'yaseminsen@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '05523378537', 'active', '2024-11-29 00:12:32'),
+(5, 'Emre ŞEN', 'emresen@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '05523378537', 'active', '2024-11-29 00:12:32'),
+(6, 'mustafa şen', 'mustafacakir@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '05523378537', 'active', '2024-11-29 00:12:32'),
+(7, 'Rahmi ŞEN', 'rahmisen@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '05523378537', 'active', '2024-11-29 00:12:32'),
+(8, 'Muhammed ŞEN', 'fatiih37@gmail.com', '202cb962ac59075b964b07152d234b70', '', '', '2024-11-29 00:51:05');
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -190,7 +194,7 @@ ALTER TABLE `siparis`
 -- Tablo için AUTO_INCREMENT değeri `uyeler`
 --
 ALTER TABLE `uyeler`
-  MODIFY `uye_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `uye_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
