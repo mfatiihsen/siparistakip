@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 28 Kas 2024, 23:32:07
+-- Üretim Zamanı: 28 Kas 2024, 23:43:33
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.0.30
 
@@ -44,8 +44,9 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`admin_id`, `admin_yetki`, `admin_ka`, `admin_adi`, `admin_soyad`, `admin_tel`, `admin_mail`, `admin_parola`) VALUES
 (1, 1, 'fatiihsen', 'Fatih', 'ŞEN', '05523378537', 'ademfatih37@gmail.com', '12'),
-(3, 2, 'ademsen', 'Adem', 'ŞEN', '05375686611', 'ademsen37@gmail.com', '123456'),
-(4, 2, 'admin', 'admin', 'admin', '000000000', 'admin@gmail.com', '1212');
+(3, 2, 'ademsen', 'Adem', 'ŞEN', '05375688800', 'ademsen37@gmail.com', '123456'),
+(4, 2, 'admin', 'admin', 'admin', '000000000', 'admin@gmail.com', 'admin'),
+(5, 2, '', 'Kürşat ', 'Abaylı', '05523378537', 'kursat@gmail.com', '12345');
 
 -- --------------------------------------------------------
 
@@ -176,7 +177,7 @@ ALTER TABLE `uyeler`
 -- Tablo için AUTO_INCREMENT değeri `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `settings`
