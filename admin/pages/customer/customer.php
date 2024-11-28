@@ -41,9 +41,11 @@ ob_start();
     <table class="table table-light table-hover rounded" id="orderTable">
         <thead class="table-light">
             <tr>
-                <th>TAKİP NO</th>
-                <th>ADRES</th>
-                <th>DÜZENLE</th>
+                <th>Adı-Soyadı</th>
+                <th>Mail</th>
+                <th>Telefon</th>
+                <th>Durum</th>
+                <th>Kayıt Tarihi</th>
             </tr>
         </thead>
         <tbody>
@@ -54,7 +56,10 @@ ob_start();
                     <tr class="item">
                         <td><?php echo htmlspecialchars($uyecek['uye_adi_soyadi']); ?></td>
                         <td><?php echo htmlspecialchars($uyecek['uye_mail']); ?></td>
-                        <td><button class="btn-duzenle-c">Düzenle</button></td>
+                        <td><?php echo htmlspecialchars($uyecek['uye_tel']); ?></td>
+                        <td><?php echo htmlspecialchars($uyecek['account_status']); ?></td>
+                            <td><?php echo htmlspecialchars($uyecek['uye_baslangict']); ?></td>
+                        
                     </tr>
             <?php
                 }

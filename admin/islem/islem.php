@@ -93,7 +93,7 @@ if (isset($_POST['adminekle'])) {
                     icon: 'success',
                     button: 'Tamam'
                 }).then(function() {
-                    window.location = '../admin_listele.php';
+                    window.location = '../pages/admins/admin_listele.php';
                 });
             });
             </script>";

@@ -7,7 +7,7 @@
 	<p style="margin: 0; font-weight: normal; color: #333;">
 	<?php
 	if (isset($_SESSION['admin_adi'])) {
-		echo "Hoş Geldin, " . htmlspecialchars($_SESSION['admin_adi']). "!";
+		echo "Hoş Geldin," . htmlspecialchars($_SESSION['admin_adi']). "!";
 	} else {
 		echo "Hoş Geldiniz, Admin!";
 	}
