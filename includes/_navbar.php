@@ -1,17 +1,20 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
 <div class="container-top">
-    <p class="num">Destek Hattı:+90 552 337 8537</p>
-    <p class="mail">e-Mail:ademfatih37@gmail.com</p>
+    <p class="num">Destek Hattı: +90 552 337 8537</p>
+    <p class="mail">e-Mail: ademfatih37@gmail.com</p>
 </div>
 <nav class="navbar navbar-expand-lg">
-
     <div class="container-fluid">
-
         <div>
             <img src="../assets/images/logo.png" height="70px" width="70px">
-            <a class="navbar-brand me-auto" href="../index.php" style="color: #1775f1;font-weight: 600;">SiparisTakip</a>
+            <a class="navbar-brand me-auto" href="../index.php" style="color: #1775f1; font-weight: 600;">SiparisTakip</a>
         </div>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasNavbarLabel">SiparisTakip</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -27,17 +30,24 @@
                     <li class="nav-item">
                         <a class="nav-link mx-lg-2" href="../views/iletisim.php">İLETİŞİM</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link mx-lg-2" href="../views/login.php">GİRİŞ</a>
-                    </li>
+
+                    <?php if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true): ?>
+                        <!-- Kullanıcı giriş yaptıysa -->
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="../views/account.php">HESABIM</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="../views/logout.php">ÇIKIŞ</a>
+                        </li>
+                    <?php else: ?>
+                        <!-- Kullanıcı giriş yapmadıysa -->
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="../views/login.php">GİRİŞ</a>
+                        </li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>
-        <!-- <a href="login.php" class="login-button">Giriş</a>
-            <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>   1
-            </button> -->
     </div>
 </nav>
 <div class="container-renk"></div>
