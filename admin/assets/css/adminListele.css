@@ -1,4 +1,8 @@
-/* Tablonun kenarlarını yuvarlat */
+
+
+
+
+/* Genel stil ayarları */
 .table-container {
   overflow-x: auto; /* Yatay kaydırma için */
   border-radius: 10px;
@@ -12,15 +16,18 @@
     width: 100%; /* Tablonun tam genişlikte olmasını sağla */
 }
 
+.btn-sil, .btn-silinmez {
+  width: 100px;
+  height: 30px;
+  font-size: 14px;
+  border-radius: 15px;
+  border: none;
+  display: inline-block;
+}
 
 .btn-sil {
   background-color: red;
   color: white;
-  width: 100px;
-  border: none;
-  height: 30px;
-  border-radius: 15px;
-  font-size: 14px;
 }
 
 .btn-sil:hover {
@@ -32,32 +39,72 @@
 .btn-silinmez {
   background-color: #1775f1;
   color: white;
-  width: 100px;
-  border: none;
-  height: 30px;
-  border-radius: 15px;
-  font-size: 14px;
 }
 
 .btn-sil:active {
   border: 1px solid red;
 }
 
-/* Mobilde düğme ve metinler optimize */
+/* Tablet ve küçük ekranlar için responsive düzenlemeler */
+@media (max-width: 1024px) {
+  .table-container {
+    padding: 0 10px;
+  }
+
+  .table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  .btn-sil, .btn-silinmez {
+    width: 90px;
+    height: 28px;
+    font-size: 12px;
+  }
+}
+
+/* Mobil ekranlar için düzenlemeler */
 @media (max-width: 768px) {
-  .btn-sil,
-  .btn-silinmez {
+  .table-container {
+    padding: 0 5px;
+  }
+
+  .table {
+    font-size: 12px;
+  }
+
+  th, td {
+    padding: 6px;
+  }
+
+  .btn-sil, .btn-silinmez {
     width: 80px;
     height: 25px;
     font-size: 12px;
   }
 
-  th,
-  td {
-    font-size: 12px;
+  .table {
+    border-collapse: collapse; /* Daha düzgün görünüm için */
+  }
+}
+
+/* Çok küçük ekranlar için düzenlemeler */
+@media (max-width: 480px) {
+  .table-container {
+    padding: 0 5px;
   }
 
-  .table-container {
-    padding: 0 10px;
+  th, td {
+    font-size: 10px;
+    padding: 5px;
+  }
+
+  .btn-sil, .btn-silinmez {
+    width: 70px;
+    height: 22px;
+    font-size: 10px;
   }
 }

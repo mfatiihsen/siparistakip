@@ -14,37 +14,74 @@
 
 
     <style>
+    .container {
+        padding: 50px;
+        background-color: white;
+        border-radius: 20px;
+        max-width: 600px;
+        margin: 20px auto; /* Ortalamak için */
+    }
+
+    .form-control {
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .btn {
+        background-color: #1775f1;
+        border-radius: 25px;
+        width: 100%; /* Tam genişlik */
+        height: 40px;
+        margin-top: 20px;
+    }
+
+    .btn:hover {
+        background-color: white;
+        color: #1775f1;
+        border: 1px solid #1775f1;
+    }
+
+    .form-check {
+        margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
         .container {
-            padding: 50px;
-            background-color: white;
-            border-radius: 20px;
+            padding: 20px;
+            border-radius: 10px;
         }
 
-
         .form-control {
-            padding: 30px;
-            border-radius: 15px;
+            padding: 10px;
+            font-size: 14px;
         }
 
         .btn {
-            background-color: #1775f1;
-            border-radius: 25px;
-            width: 150px;
-            height: 40px;
-            margin-top: 20px;
+            height: 45px;
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .container {
+            padding: 15px;
         }
 
-        .btn:hover {
-            background-color: white;
-            color: #1775f1;
-            border: 1px solid #1775f1
+        .form-control {
+            padding: 8px;
+            font-size: 12px;
         }
 
-        .form-check{
-            margin-top: 40px;
+        .btn {
+            font-size: 14px;
         }
 
-    </style>
+        .form-check {
+            font-size: 14px;
+        }
+    }
+</style>
+
 </head>
 
 <body>

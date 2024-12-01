@@ -19,13 +19,6 @@
 				<!-- <li><a href="#">Yeni Müşteri</a></li> -->
 			</ul>
 		</li>
-		<!-- <li>
-			<a href="#"><i class='bx bxs-file-doc icon'></i>Raporlar<i class='bx bx-chevron-right icon-right'></i></a>
-			<ul class="side-dropdown">
-				<li><a href="#">Sipariş Raporları</a></li>
-				<li><a href="#">Müşteri Raporlar</a></li>
-			</ul>
-		</li> -->
 		<li>
 			<a href="#" class="sidebar-link"><i class='bx bx-id-card icon'></i>Yönetici<i class='bx bx-chevron-right icon-right'></i></a>
 			<ul class="side-dropdown">
@@ -33,14 +26,5 @@
 				<li><a href="../admins/admin_ekle.php">Yönetici Ekle</a></li>
 			</ul>
 		</li>
-		<!-- <li class="divider" data-text="site ayarlari">Ayarları</li>
-		<li>
-			<a href="#" class="sidebar-link"><i class='bx bx-cog icon'></i>Site Ayarları <i class='bx bx-chevron-right icon-right'></i></a>
-			<ul class="side-dropdown">
-				<li><a href="../settings/whyus.php">Neden Biz?</a></li>
-				<li><a href="../settings/aboutus.php">Hakkımızda</a></li>
-				<li><a href="../settings/communication.php">İletişim</a></li>
-			</ul>
-		</li> -->
 	</ul>
 </section>

@@ -64,3 +64,53 @@
 a {
   color: #1775f1;
 }
+
+
+
+
+
+/* Responsive Design: Tablet ve altı ekranlar için */
+@media (max-width: 768px) {
+  .container-column {
+    padding: 15px;
+  }
+
+  .title-text h3 {
+    font-size: 20px;
+  }
+
+  .input-giris, .btn-giris {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .hesapAc {
+    font-size: 12px;
+  }
+}
+
+/* Responsive Design: Mobil ekranlar için */
+@media (max-width: 480px) {
+  
+  .container-column {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .title-text h3 {
+    font-size: 18px;
+  }
+
+  .input-giris, .btn-giris {
+    padding: 8px;
+    font-size: 12px;
+    margin: 10px 10px;
+    border: 1px solid grey;
+  }
+
+  .hesapAc {
+    font-size: 10px;
+  }
+}
+
+

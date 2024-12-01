@@ -1,4 +1,3 @@
-
 <?php
 $title = "Şifre Değiştir";
 ob_start();
@@ -7,14 +6,17 @@ ob_start();
 
 
 <style>
-    /* Şifre değiştirme formu container'ı */
     .container-reset {
         background-color: #fff;
         padding: 30px;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 30%;
-        margin: 0 auto;  /*  Yatayda ortalamak için   */
+        width: 100%;
+        max-width: 500px;
+        /* Form genişliği belirli bir boyuta sabitlendi */
+        margin: 0 auto;
+        /* Yatayda ortalamak için */
+        box-sizing: border-box;
     }
 
     .container-reset h3 {
@@ -29,7 +31,6 @@ ob_start();
         font-size: 14px;
         margin: 10px 0 5px;
         color: #333;
-
     }
 
     input {
@@ -41,6 +42,7 @@ ob_start();
         font-size: 16px;
         outline: none;
         transition: border-color 0.3s;
+        box-sizing: border-box;
     }
 
     input:focus {
@@ -48,7 +50,7 @@ ob_start();
     }
 
     /* Buton */
-    button {
+    .resetBtn {
         margin-top: 20px;
         width: 100%;
         padding: 12px;
@@ -61,15 +63,58 @@ ob_start();
         transition: color 0.3s ease-in;
     }
 
-    button:hover {
+    .resetBtn:hover {
         background-color: white;
         color: #1775f1;
         border: 2px solid #1775f1;
     }
 
-    button:active {
+    .resetBtn:active {
         background-color: #388e3c;
     }
+
+    /* Responsive Design: Tablet ve altı ekranlar için */
+    @media (max-width: 768px) {
+        .container-reset {
+            padding: 20px;
+            /* Padding değerini biraz küçültüyoruz */
+        }
+
+        .container-reset h3 {
+            font-size: 22px;
+            /* Başlık boyutunu küçültüyoruz */
+            margin-bottom: 30px;
+        }
+
+        input,
+        .resetBtn {
+            padding: 12px;
+            /* Input ve butonları daha uyumlu hale getiriyoruz */
+            font-size: 14px;
+        }
+    }
+
+    /* Responsive Design: Mobil ekranlar için */
+    @media (max-width: 480px) {
+        .container-reset {
+            padding: 15px;
+            /* Mobil ekranlar için padding daha da küçültülür */
+        }
+
+        .container-reset h3 {
+            font-size: 20px;
+            /* Başlık boyutunu küçültüyoruz */
+            margin-bottom: 20px;
+        }
+
+        input,
+        .resetBtn {
+            padding: 10px;
+            /* Daha küçük ekranlar için input ve buton boyutları küçültülür */
+            font-size: 12px;
+        }
+    }
+
 </style>
 
 <main>
@@ -86,7 +131,7 @@ ob_start();
             <label for="confirmpass"></label>
             <input type="password" id="confirmpass" name="confirmpass" required minlength="1" placeholder="Yeni şifrenizi tekrar girin">
 
-            <button type="submit" name="resetPass">Değiştir</button>
+            <button class="resetBtn" type="submit" name="resetPass">Değiştir</button>
         </form>
     </div>
 </main>
@@ -97,7 +142,7 @@ ob_start();
 
 
 
-<?php 
+<?php
 $content = ob_get_clean();
 include('../includes/_layout.php');
 ?>

@@ -1,5 +1,5 @@
 <?php
-$title = "Giriş Yap";
+$title = "Giriş";
 ob_start();
 ?>
 

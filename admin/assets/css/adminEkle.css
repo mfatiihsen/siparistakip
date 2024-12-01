@@ -1,3 +1,4 @@
+/* Genel Stil */
 @font-face {
     font-family: Poppins-Bold;
     src: url("../fonts/poppins/Poppins-Bold.ttf");
@@ -5,7 +6,6 @@
 
 .form-control {
     border-radius: 25px;
-    /* Köşe yuvarlama */
     padding: 25px;
     transition: box-shadow 0.4s ease;
 }
@@ -14,17 +14,17 @@
     background-color: white;
     border: 1px solid #1775f1;
     outline: none;
-    box-shadow: 0 0 5px #1775f1;
     box-shadow: 0 0 10px rgba(0, 123, 255, 0.75);
 }
 
 .container-ekle {
     background-color: white;
     width: 50%;
-    height: 800px;
+    height: auto; /* Yükseklik içeriğe göre ayarlanır */
     padding: 50px;
     border-radius: 25px;
     text-align: center;
+    margin: 20px auto; /* Ortalamak için */
 }
 
 .ekle-btn {
@@ -32,14 +32,13 @@
     width: 150px;
     height: 40px;
     border-radius: 50px;
-    margin-top: 50px;
+    margin-top: 30px;
     transition: background-color 0.4s ease, color 0.4s ease;
     background-color: #1775f1;
     border: none;
     justify-content: center;
     text-align: center;
-    justify-items: center;
-    display: block;
+    display: inline-block;
 }
 
 .ekle-btn:hover {
@@ -56,4 +55,76 @@ h2 {
 .info {
     color: #adaaaa;
     font-size: 14px;
+}
+
+/* Tablet ve küçük ekranlar için düzenlemeler */
+@media (max-width: 1024px) {
+    .container-ekle {
+        width: 70%; /* Tablet ekranlarda genişlik azaltıldı */
+        padding: 30px;
+    }
+
+    .form-control {
+        padding: 20px; /* Form elemanları küçültüldü */
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    .info {
+        font-size: 13px;
+    }
+}
+
+/* Mobil ekranlar için düzenlemeler */
+@media (max-width: 768px) {
+    .container-ekle {
+        width: 90%; /* Mobil ekranlarda tam genişlik yakın */
+        padding: 20px;
+    }
+
+    .form-control {
+        padding: 15px;
+    }
+
+    .ekle-btn {
+        width: 120px;
+        height: 35px;
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .info {
+        font-size: 12px;
+    }
+}
+
+/* Çok küçük mobil cihazlar için düzenlemeler */
+@media (max-width: 480px) {
+    .container-ekle {
+        width: 95%; /* Daha fazla boşluk için genişlik artırıldı */
+        padding: 15px;
+    }
+
+    .form-control {
+        padding: 10px;
+    }
+
+    .ekle-btn {
+        width: 100px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .info {
+        font-size: 11px;
+    }
 }

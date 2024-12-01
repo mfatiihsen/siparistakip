@@ -1,4 +1,28 @@
+/* Genel Stil */
 
+
+main {
+    width: 100%; /* Ana kapsayıcı genişliği */
+    overflow-x: auto; /* Yatay kaydırmayı etkinleştir */
+}
+
+.table-container {
+    overflow-x: auto; /* Tablo taşarsa yatay kaydırma */
+    display: block; /* Kapsayıcı blok düzeni */
+    max-width: 100%; /* Tablonun genişliğini sınırlayın */
+}
+
+.table {
+    width: 100%; /* Tablo genişliğini ayarlayın */
+    table-layout: auto; /* Otomatik sütun genişliği */
+}
+
+
+th, td {
+    min-width: 150px; /* Sütun genişlikleri için minimum değer */
+    padding: 8px; /* İçerik boşlukları */
+    white-space: nowrap; /* Hücre içeriği taşarsa satırdan taşar */
+}
 
 
 
@@ -9,6 +33,7 @@
     border-radius: 20px;
     border: 1px solid green;
     font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-duzenle-c:hover {
@@ -55,4 +80,79 @@
     top: 25px;
     color: grey;
     font-size: 20px;
+}
+
+/* Tablet ve küçük ekranlar için düzenlemeler */
+@media (max-width: 1024px) {
+    .table-container {
+        overflow-x: scroll; /* Mobilde yatay kaydırmayı etkinleştirir */
+    }
+    .table {
+        display: table;
+        min-width: 600px; /* Mobil cihazda tabloyu kaydırılabilir yapar */
+    }
+    .btn-duzenle-c {
+        width: 90px; /* Düğme genişliği azaltıldı */
+        font-size: 13px; /* Yazı boyutu küçültüldü */
+    }
+
+    .search {
+        padding: 15px; /* Arama kutusu içeriği azaltıldı */
+    }
+
+    .input-container i {
+        font-size: 18px; /* İkon boyutu küçültüldü */
+        right: 20px; /* Daha iyi hizalama için sağdan uzaklık azaltıldı */
+    }
+}
+
+/* Mobil ekranlar için düzenlemeler */
+@media (max-width: 768px) {
+
+    table {
+        display: block; /* Tablo blok düzenine geçer */
+        min-width: 600px; /* Yatay kaydırma için minimum genişlik */
+    }
+
+    th, td {
+        white-space: nowrap; /* Hücre içeriği taşarsa tek satırda kalır */
+        text-align: left; /* Hücre içeriği sola yaslanır */
+    }
+
+    .table-container {
+        overflow-x: auto; /* Mobilde yatay kaydırmayı etkinleştirir */
+    }
+
+    .btn-duzenle-c {
+        width: 80px; /* Düğme genişliği daha da küçültüldü */
+        font-size: 12px; /* Yazı boyutu optimize edildi */
+    }
+
+    .search {
+        padding: 10px; /* Daha küçük ekranlarda içerik daha kompakt */
+        font-size: 14px; /* Placeholder metni boyutu küçültüldü */
+    }
+
+    .input-container i {
+        font-size: 16px; /* İkon boyutu mobil için optimize edildi */
+        right: 15px;
+    }
+}
+
+/* Çok küçük mobil cihazlar için düzenlemeler */
+@media (max-width: 480px) {
+    .btn-duzenle-c {
+        width: 70px; /* Küçük cihazlar için düğme boyutu */
+        font-size: 11px;
+    }
+
+    .search {
+        padding: 8px;
+        font-size: 13px; /* Placeholder daha küçük */
+    }
+
+    .input-container i {
+        font-size: 14px; /* İkon boyutu daha küçük */
+        right: 10px;
+    }
 }

@@ -7,11 +7,10 @@
 html {
   height: 100vh;
   margin: 0;
-  
 }
 
 body {
-  background-color:  #f1f1f1;
+  background-color: #f1f1f1;
   display: flex;
   flex-direction: column;
   font-family: "Arial", sans-serif;
@@ -19,13 +18,10 @@ body {
   min-height: 100px;
 }
 
-
-
-
 /* ---------------------------------------------------------------------------------------------- */
 /* MAIN CSS */
 
-main{
+main {
   width: 100%;
   flex: 1; /* Ana içeriği esneterek footer'ı aşağı iter */
   margin-top: 20px;
@@ -40,44 +36,43 @@ main{
 .search-container {
   flex-direction: column;
   display: flex;
-  align-items: center;  /* Dikeyde ortalama */
-  height: 100%;        /* Konteynerin yüksekliğini tüm ekran yapmak */
-  width: 100%;          /* Konteynerin genişliği tüm sayfayı kaplasın */
+  align-items: center; /* Dikeyde ortalama */
+  height: 100%; /* Konteynerin yüksekliğini tüm ekran yapmak */
+  width: 100%; /* Konteynerin genişliği tüm sayfayı kaplasın */
   padding: 10px;
-  justify-content: center;  /* Yatayda ortalama */
+  justify-content: center; /* Yatayda ortalama */
 }
 
 /* Input alanını stilize et */
 
-form{
+form {
   flex-direction: column;
   display: flex;
   width: 100%;
   align-items: center;
 }
 
-
 .search-input {
   padding: 15px;
   font-size: 16px;
   border: 1px solid #1775f1;
   border-radius: 30px;
-  width: 50%;  
-  margin-right: 10px;  
+  width: 50%;
+  margin-right: 10px;
   transition: all 0.2s ease-in-out;
 }
 
-.search-input:focus{
+.search-input:focus {
   outline: none;
   border: 2px solid #1775f1;
 }
 
-.search-input::placeholder{
+.search-input::placeholder {
   color: #c8cbcf;
 }
 
 /* arttırma azaltma spinnerın gizlenmesi için yazılan kod bloğu choreme edge operada geçerlidir */
-input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
@@ -87,7 +82,6 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
-
 
 /* Buton stilini belirle */
 .search-button {
@@ -110,7 +104,7 @@ input[type="number"] {
   border: 1px solid #1775f1;
 }
 
-.search{
+.search {
   width: 100%;
   background-color: white;
   border-radius: 20px;
@@ -118,27 +112,24 @@ input[type="number"] {
   box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.3);
 }
 
-
-.main-content .search .info{
+.main-content .search .info {
   color: black;
 }
 
-
-.infodiv .info{
+.infodiv .info {
   text-align: center;
   font-size: 25px;
 }
 
-.infodiv .info2{
+.infodiv .info2 {
   text-align: center;
   font-size: 15px;
   color: #c3c4c7;
   margin-bottom: 80px;
 }
 
-
 /* Neden Biz İçeriğinin yazılması */
-.whyus{
+.whyus {
   padding: 30px;
   border-radius: 20px;
   background-color: white;
@@ -152,14 +143,12 @@ input[type="number"] {
   align-items: center; /* Dikeyde ortalar */
 }
 
-.container
-{
+.container {
   margin-top: 40px;
   margin-bottom: 40px;
 }
 
-
-.box{
+.box {
   width: 300px;
   padding: 20px;
   background-color: #f1f1f1;
@@ -175,25 +164,25 @@ input[type="number"] {
   margin: 0 50px;
 }
 
-.box:hover{
+.box:hover {
   background-color: #1775f1;
   color: white;
   width: 350px;
-  font-size: 18px
+  font-size: 18px;
 }
 
-.baslik{
+.baslik {
   font-size: 22px;
   font-weight: 600;
   text-align: center;
   margin-bottom: 10px;
 }
 
-.yazi{
+.yazi {
   text-align: center;
 }
 
-.whyusyazi{
+.whyusyazi {
   font-weight: 600;
   font-size: 30px;
   text-decoration: underline;
@@ -202,31 +191,125 @@ input[type="number"] {
   margin-bottom: 20px;
 }
 
-
-
-
-
 /* ---------------------------------------------------------------------------------------------- */
 /* RESPONSİVE TASARIM  */
 
-@media (max-width: 768px) {
-  .container {
+/* Genel Responsive Ayarları */
+@media screen and (max-width: 1200px) {
+  .search-input {
+    width: 70%; /* Daha dar ekranlarda input genişliği azaltılır */
+  }
+
+  .search-button {
+    width: 120px; /* Buton genişliği daraltılır */
+    font-size: 14px;
+  }
+
+  .whyus {
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .box {
+    width: 250px;
+    height: auto; /* Kutuların yüksekliğini içerik boyutuna göre ayarlıyoruz */
+    margin: 20px 20px; /* Aralığı artırıyoruz */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .search-container {
     flex-direction: column;
-    align-items: center;
+    padding: 20px;
   }
 
-  #site {
-    margin-left: 0; /* Mobil görünümde margin'i kaldır */
-    margin-top: 20px; /* Üstten biraz boşluk ekle */
+  .search-input {
+    width: 90%; /* Küçük ekranlarda input tam genişlikte */
+    font-size: 14px; /* Yazı boyutu küçültüldü */
+    margin-bottom: 20px; /* Altına boşluk eklendi */
   }
 
-  .footer-section {
-    margin: 15px 0; /* Üst ve alt boşluk */
-    text-align: center; /* Mobilde metni ortala */
+  .search-button {
+    width: 100px; /* Daha dar buton genişliği */
+    padding: 8px;
+    font-size: 12px;
   }
 
-  .footer-section h3 {
-    text-align: center;
-    text-decoration: underline;
+  .infodiv .info {
+    font-size: 18px; /* Başlık yazı boyutu küçültüldü */
+  }
+
+  .infodiv .info2 {
+    font-size: 14px; /* Alt yazı boyutu küçültüldü */
+  }
+
+  .whyusyazi {
+    font-size: 24px; /* Başlık yazısı küçültüldü */
+  }
+
+  .box {
+    width: 200px; /* Kutuların genişliği azaltıldı */
+    margin: 15px 10px;
+  }
+
+  .baslik {
+    font-size: 18px; /* Başlık yazı boyutu küçültüldü */
+  }
+
+  .yazi {
+    font-size: 14px; /* Metin yazı boyutu küçültüldü */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .search {
+    height: auto; /* Konteynerin yüksekliğini içerik boyutuna göre ayarlıyoruz */
+    padding: 20px 10px;
+  }
+
+  .search-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .search-input {
+    width: 100%; /* Mobilde input alanı tam genişlikte */
+    font-size: 12px;
+  }
+
+  .search-button {
+    width: 100px; /* Buton boyutu küçültüldü */
+    padding: 6px;
+  }
+
+  .infodiv .info {
+    font-size: 16px;
+  }
+
+  .infodiv .info2 {
+    font-size: 12px;
+    margin-bottom: 20px; /* Daha az boşluk bırakıldı */
+  }
+
+  .whyusyazi {
+    font-size: 20px;
+  }
+
+  .box {
+    width: 90%; /* Mobilde kutular genişliği ekran boyutuna göre ayarlanır */
+    margin: 10px auto; /* Ortalanır */
+    height: auto;
+  }
+
+  .box:hover {
+    width: 90%;
+  }
+  .baslik {
+    font-size: 16px;
+  }
+
+  .yazi {
+    font-size: 12px;
   }
 }

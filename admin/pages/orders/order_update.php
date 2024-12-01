@@ -27,30 +27,92 @@ $sipariscek = $siparis->fetch(PDO::FETCH_ASSOC);
 
 
     <style>
+    .container {
+        padding: 40px;
+        background-color: white;
+        border-radius: 20px;
+        max-width: 800px; /* Maksimum genişlik */
+        margin: 20px auto; /* Ortalamak için */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+    }
+
+    .form-control {
+        padding: 15px;
+        border-radius: 10px;
+        font-size: 16px;
+    }
+
+    .btn {
+        background-color: #1775f1;
+        border-radius: 25px;
+        width: 150px; /* Daha geniş buton */
+        height: 45px;
+        margin-top: 20px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .btn:hover {
+        background-color: white;
+        color: #1775f1;
+        border: 1px solid #1775f1;
+    }
+
+    .form-floating {
+        margin-bottom: 20px;
+    }
+
+    .form-text {
+        font-size: 14px;
+        color: #6c757d;
+    }
+
+    @media (max-width: 768px) {
         .container {
-            padding: 50px;
-            background-color: white;
-            border-radius: 20px;
+            padding: 20px;
+            border-radius: 10px;
         }
 
-
         .form-control {
-            padding: 30px;
-            border-radius: 15px;
+            padding: 12px;
+            font-size: 14px;
         }
 
         .btn {
-            background-color: #1775f1;
-            border-radius: 25px;
-            width: 100px;
+            width: 100%; /* Mobilde tam genişlik */
+            font-size: 14px;
         }
 
-        .btn:hover {
-            background-color: white;
-            color: #1775f1;
-            border: 1px solid #1775f1
+        select.form-select {
+            font-size: 14px;
         }
-    </style>
+
+        .form-floating {
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .container {
+            padding: 15px;
+        }
+
+        .form-control {
+            padding: 10px;
+            font-size: 12px;
+        }
+
+        .btn {
+            font-size: 12px;
+            height: 40px;
+        }
+
+        select.form-select {
+            font-size: 12px;
+        }
+    }
+</style>
+
 </head>
 
 <body>
@@ -120,10 +182,6 @@ $sipariscek = $siparis->fetch(PDO::FETCH_ASSOC);
                         <input value="<?php echo $sipariscek['alici_mail'] ?>" required name="mail" placeholder="Alıcı Mail:" type="text" class="form-control"
                             id="exampleInputPassword1">
                     </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">BİLGİLERİN DOĞRU OLDUĞUNA EMİNİM</label>
-                    </div>
 
                     <button type="submit" class="btn btn-primary" name="siparisguncelle" id="submitBtn">Güncelle</button>
                 </form>
@@ -178,26 +236,6 @@ $sipariscek = $siparis->fetch(PDO::FETCH_ASSOC);
             }
         });
     });
-
-
-    /*
-    // check box kontrolü
-    document.getElementById("submitBtn").addEventListener("click", function(event) {
-        let checkbox = document.getElementById("exampleCheck1");
-
-        if (!checkbox.checked) {
-            event.preventDefault();
-            swal({
-                title: 'Hata!',
-                text: 'Lütfen bilgilerin doğru olduğundan emin olun!',
-                icon: 'error',
-                button: 'Tamam'
-            }).then(function() {
-                window.location = 'siparis_ekle.php';
-            });
-        }
-    });
-    */
 </script>
 
 </html>

@@ -1,5 +1,4 @@
-
-
+/* Genel Ayarlar */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -11,8 +10,8 @@ body {
     min-height: 100vh;
 }
 
-
-.container{
+/* Konteyner Ayarları */
+.container {
     align-items: center;
     display: flex;
     justify-content: center;
@@ -21,32 +20,32 @@ body {
     max-width: 1300px;
 }
 
-.container-info{
+/* Ana Bilgi Alanı */
+.container-info {
     display: flex;
-    flex-direction: column; /* Alt alta hizala */
-    align-items: center;    /* Ortalamak için */
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    gap: 10px;           
+    gap: 10px;
     margin-bottom: 80px;
 }
 
-
-.info-baslik{
+.info-baslik {
     color: gray;
     font-size: 12px;
     font-weight: 500;
 }
 
+/* Sipariş Detay Konteyneri */
 .order-details-container {
     background-color: #fff;
-    width: 80%;
+    width: 100%; /* Dar ekranlar için genişliği tüm ekrana yay */
     max-width: 1000px;
     padding: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    align-items: center;
     display: grid;
-    margin-top: 100px;
+    margin-top: 0px;
 }
 
 h1 {
@@ -56,7 +55,7 @@ h1 {
     margin-bottom: 0px;
 }
 
-/* Sipariş durumu */
+/* Sipariş Durumu */
 .order-status {
     display: flex;
     justify-content: space-between;
@@ -82,68 +81,46 @@ h1 {
     color: #333;
 }
 
-/* Sipariş bilgileri */
+/* Çizgiler */
+.cizgi1, .cizgi2, .cizgi3 {
+    background-color: black;
+    height: 5px;
+    width: 200px;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Sipariş Bilgileri */
+.order {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #f9f9f9;
+    align-items: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    border-radius: 25px;
+}
+
 .order-info {
     flex: 1;
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 8px;
     min-width: 280px;
+    margin-bottom: 20px;
 }
 
-.order-info h2 {
-    margin-top: 0;
-    color: #333;
-}
-
-.order-info p {
-    font-size: 1.1em;
-    margin: 10px 0;
-}
-
-
-
-/* Çizgi */
-
-
-.cizgi1,.cizgi2,.cizgi3{
-    background-color: black;
-    height: 5px;
-    width: 200px;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    place-items: center;
-    margin-top: 30px;
-}
-
-
-
-
-/* Sipariş detyaları tasarımı  */
-
-.order{
-    flex-wrap: wrap;
-    background-color: #f9f9f9;
-    align-items: row;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    padding: 20px;
-    border-radius: 25px;
-}
-
-h3{
+h3 {
     text-align: left;
     margin-bottom: 30px;
     font-weight: 600;
     text-decoration: underline;
 }
 
-
-
-/* Sipariş Harektleri  */
-
+/* Sipariş Hareketleri */
 .container2 {
     width: 100%;
     margin: auto;
@@ -162,7 +139,6 @@ h3{
     margin-top: 30px;
 }
 
-
 .toggle-row:hover {
     background-color: #e0e0e0;
 }
@@ -176,45 +152,38 @@ h3{
 .toggle-row .icon.rotate {
     transform: rotate(90deg);
 }
+
 .hidden-table {
     display: none;
     border: 1px solid #ddd;
     margin: 0 0 20px;
 }
+
 .hidden-table table {
     width: 100%;
     border-collapse: collapse;
 }
+
 .hidden-table th, .hidden-table td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
 }
+
 .hidden-table th {
     background-color: #f0f0f0;
 }
 
-
-
-
-.backAna{
+/* Ana Sayfaya Dön Butonu */
+.backAna {
     text-align: center;
     margin-top: 30px;
 }
 
-
-
 /* Responsive Tasarım */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .order-status {
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-    }
-
-    .status-item {
-        flex: none;
-        min-width: 120px; /* Minimum genişlik */
+        gap: 20px;
     }
 
     .order {
@@ -225,25 +194,35 @@ h3{
     .order-info {
         width: 100%;
     }
-
-    .cizgi1, .cizgi2, .cizgi3 {
-        display: none; /* Çizgiler dar ekranda kaldırılır */
-    }
 }
 
-@media (max-width: 480px) {
-
-    .order-status{
-        margin-top: 200px;
-    }
-
-    h1 {
-        font-size: 1.5em;
+@media (max-width: 768px) {
+    .order-status {
+        flex-direction: column;
+        align-items: center;
     }
 
     .status-item img {
         width: 40px;
         height: 40px;
+    }
+
+    .cizgi1, .cizgi2, .cizgi3 {
+        display: none; /* Çizgiler kaldırılır */
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .order-status {
+        margin-top: 20px;
+    }
+
+    h1 {
+        font-size: 1.5em;
     }
 
     .info-baslik {
@@ -253,5 +232,69 @@ h3{
     .toggle-row {
         flex-direction: column;
         text-align: center;
+    }
+
+    .order-info{
+        width: 90%;
+    }
+    
+}
+
+
+@media (max-width: 390px) {
+
+    .container{
+        width: 100%;
+    }
+    /* Alıcı ve Sipariş Bilgileri */
+    .order {
+        flex-direction: column; /* Elemanları dikey hizala */
+        align-items: stretch; /* Her elemanın tam genişlikte olmasını sağla */
+        gap: 10px; /* Elemanlar arası boşluk */
+        width: 90%;
+        background-color: white;
+        padding: 0;
+    }
+
+    .order-info {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        background-color: #f1f1f1;
+        width: 100%; /* Her eleman tam genişlik kaplar */
+        word-wrap: break-word; /* Uzun metinler taşmayı önler */
+        overflow-wrap: anywhere; /* Gerekirse uzun kelimeleri böler */
+    }
+
+    /* Hareket Tablosu */
+    .container2 {
+        width: 100%; /* Konteyneri tam genişlikte yap */
+    }
+
+    .hidden-table {
+        width: 100%; /* Tabloyu tam genişlikte yap */
+        overflow-x: auto; /* Taşma durumunda yatay kaydırma */
+    }
+
+    .hidden-table table {
+        font-size: 0.8em; /* Tablo yazı boyutunu küçült */
+    }
+
+    /* Genel Görsel Düzenleme */
+    .order-details-container {
+        padding: 15px; /* Dar ekranlar için daha az dolgu */
+    }
+
+    h3 {
+        font-size: 1em; /* Başlık yazı boyutunu küçült */
+        margin-bottom: 10px; /* Başlık altı boşluğu azalt */
+    }
+
+    .toggle-row {
+        flex-direction: column; /* Dikey hizala */
+        text-align: center; /* Metni ortala */
+        padding: 8px; /* Daha az iç boşluk */
+    }
+
+    .backAna {
+        font-size: 0.9em; /* Buton yazı boyutunu küçült */
     }
 }

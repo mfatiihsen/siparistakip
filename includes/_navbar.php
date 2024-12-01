@@ -14,12 +14,16 @@ if (session_status() === PHP_SESSION_NONE) {
             <img src="../assets/images/logo.png" height="70px" width="70px">
             <a class="navbar-brand me-auto" href="../index.php" style="color: #1775f1; font-weight: 600;">SiparisTakip</a>
         </div>
+        <!-- Mobile Menü Butonu -->
+        <button class="navbar-toggler" style="border: none;outline:none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">SiparisTakip</h5>
+                <h5 style="color:#1775f1" class="offcanvas-title" id="offcanvasNavbarLabel"><img src="../assets/images/logo.png" height="50px" width="50px">SiparişTakip</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div class="offcanvas-end">
+            <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
                         <a class="nav-link mx-lg-2" aria-current="page" href="../index.php">ANA SAYFA</a>
