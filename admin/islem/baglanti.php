@@ -6,6 +6,7 @@
 
 try {
 	$baglanti= new PDO("mysql:host=localhost; dbname=siparis",   'root', ''     );
+	$baglantiDurumu = "Bağlantı Başarılı";
 	#echo "bağlantı başarılı";
 } catch (Exception $e) {
 	

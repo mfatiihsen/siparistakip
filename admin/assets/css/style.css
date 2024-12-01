@@ -416,9 +416,10 @@ main .card .label {
 }
 main .data {
   display: flex;
-  grid-gap: 20px;
+  grid-gap: 0px;
   margin-top: 20px;
   flex-wrap: wrap;
+  padding: 0;
 }
 main .data .content-data {
   flex-grow: 1;
@@ -584,10 +585,249 @@ main .btn-send {
 main .btn-send:hover {
   background: var(--dark-blue);
 }
-/* MAIN */
-/* CONTENT */
 
-@media screen and (max-width: 768px) {
+.recent-orders-container {
+  margin-top: 30px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.section-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.order-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.order-card {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1775f1;
+}
+
+.order-status {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.order-status.yolda {
+  background-color: #1775f1;
+  color: #fff;
+}
+
+.order-status.daĞitimda {
+  background-color: #ffcc00;
+  color: #fff;
+}
+
+.order-status.teslİm-edİldİ {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.order-status.teslİm-alindi {
+  background-color: red;
+  color: #fff;
+}
+
+.order-details p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.order-details strong {
+  color: #333;
+}
+
+.data {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.content-data {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 48%; /* 2 öğe yan yana */
+  padding: 20px;
+  height: 100%;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.menu {
+  position: relative;
+}
+
+.menu-link {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  list-style: none;
+}
+
+.menu:hover .menu-link {
+  display: block;
+}
+
+.order-cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-status {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.order-status.yolda {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+.order-status.dagitimda {
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+.order-status.teslim-edildi {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.order-details {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Grafik konteyneri */
+.grafik-container {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.server-status {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  justify-content: space-around;
+  justify-items: flex-start;
+  flex-direction: row;
+  display: flex;
+}
+
+.server-status h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.server-status p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.server-status h4 {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+strong {
+  color: #1775f1;
+}
+
+.tablo-veri {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 20px;
+  width: 100%;
+  margin: 10px 0;
+}
+
+/* Responsive: Ekran küçükse tek sütun */
+@media (max-width: 768px) {
+  
+  .content-data {
+    width: 100%; /* Tek sütun yapıyoruz */
+    margin: 10px 0;
+  }
+
+  .order-cards {
+    flex-direction: column; /* Sipariş kartlarını dikey sıralıyoruz */
+    grid-template-columns: 1fr 1fr; 
+  }
+}
+
+@media (max-width: 480px) {
+  .head h3 {
+    font-size: 18px; /* Başlıkları küçültüyoruz */
+  }
+
+  .order-details p {
+    font-size: 12px; /* Yazı boyutunu küçültüyoruz */
+  }
+
+  .order-cards {
+    grid-template-columns: 1fr; /* One card per row on small screens */
+  }
+
   #content {
     position: relative;
     width: calc(100% - 60px);
@@ -598,3 +838,6 @@ main .btn-send:hover {
     display: none;
   }
 }
+
+/* MAIN */
+/* CONTENT */

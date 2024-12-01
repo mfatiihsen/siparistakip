@@ -1,17 +1,17 @@
 .btn-duzenle {
-    width: 100%;
-    background-color: green;
-    color: white;
-    border-radius: 20px;
-    border: 1px solid green;
-    font-size: 14px;
+  width: 100%;
+  background-color: green;
+  color: white;
+  border-radius: 20px;
+  border: 1px solid green;
+  font-size: 14px;
 }
 
 .btn-duzenle:hover {
-    background-color: white;
-    color: green;
+  background-color: white;
+  color: green;
 }
 
 .durum {
-    font-weight: 500;
+  font-weight: 500;
 }

@@ -3,18 +3,6 @@
 
 
 /* Genel stil ayarları */
-.table-container {
-  overflow-x: auto; /* Yatay kaydırma için */
-  border-radius: 10px;
-  width: 100%; 
-  margin: 0;
-  padding: 0;
-}
-
-.table {
-    margin-left: 0; /* Margini sıfırla */
-    width: 100%; /* Tablonun tam genişlikte olmasını sağla */
-}
 
 .btn-sil, .btn-silinmez {
   width: 100px;
@@ -44,6 +32,10 @@
 .btn-sil:active {
   border: 1px solid red;
 }
+
+
+
+
 
 /* Tablet ve küçük ekranlar için responsive düzenlemeler */
 @media (max-width: 1024px) {

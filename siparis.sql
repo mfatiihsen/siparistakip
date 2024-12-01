@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 28 Kas 2024, 23:43:33
+-- Üretim Zamanı: 01 Ara 2024, 19:21:48
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.0.30
 
@@ -107,9 +107,9 @@ INSERT INTO `siparis` (`siparis_id`, `siparis_takip_no`, `siparis_saat`, `sipari
 (12, 12108030085, '16:09:02', '2024-11-25', 'Esen Mahallesi Pala Caddesi n:1 d:4 İzmir/torbalı', 'TESLİM ALINDI', 'Zeynep Tutar', '05523378537', 'ademfatih27@gmail.com', NULL, NULL, NULL),
 (13, 47260396489, '16:10:11', '2024-11-25', 'emek mahallesi Kocaeli/Çayırova', 'YOLDA', 'Hulusi ŞEN', '05523378537', 'ademfatih37@gmail.com', '2024-11-25 14:11:52', NULL, NULL),
 (14, 97613078270, '16:13:56', '2024-11-25', 'Hacı Halil Mahallesi 62/6 Sokak No:41', 'TESLİM ALINDI', 'Adem  ŞEN', '05523378537', 'ademfatih37@gmail.com', NULL, NULL, NULL),
-(15, 87732008748, '16:14:40', '2024-11-25', 'iğdir mahallesi ıspanak sokak no:37 Kastamonu/araç', 'TESLİM ALINDI', 'Mustafa Minaz', '05523378537', 'ademfatih37@gmail.com', NULL, NULL, NULL),
+(15, 87732008748, '16:14:40', '2024-11-25', 'iğdir mahallesi ıspanak sokak no:37 Kastamonu/araç', 'DAĞITIMDA', 'Mustafa Minaz', '05523378537', 'ademfatih37@gmail.com', NULL, '2024-11-30 21:39:18', NULL),
 (16, 15230638662, '16:48:25', '2024-11-25', 'uzunlar caddesi 62/6 sokak no:3 daire:24 Tekirdağ/Çorlu', 'TESLİM ALINDI', 'Tekin Çakar', '05523378537', 'tekincakar@gmail.com', NULL, NULL, NULL),
-(17, 10855492030, '16:49:45', '2024-11-25', 'Bahçelievler, İnönü Cd. No:23/B, 27220 Şahinbey/Gaziantep', 'TESLİM ALINDI', 'Samet ELMACI', '0552 338 9832', 'sametelmaci@gmail.com', NULL, NULL, NULL);
+(17, 10855492030, '16:49:45', '2024-11-25', 'Bahçelievler, İnönü Cd. No:23/B, 27220 Şahinbey/Gaziantep', 'TESLİM EDİLDİ', 'Samet ELMACI', '0552 338 9832', 'sametelmaci@gmail.com', NULL, NULL, '2024-12-01 16:54:45');
 
 -- --------------------------------------------------------
 
@@ -139,7 +139,7 @@ INSERT INTO `uyeler` (`uye_id`, `uye_adi_soyadi`, `uye_mail`, `uye_password`, `u
 (5, 'Emre ŞEN', 'emresen@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '05523378537', 'active', '2024-11-29 00:12:32'),
 (6, 'mustafa şen', 'mustafacakir@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '05523378537', 'active', '2024-11-29 00:12:32'),
 (7, 'Rahmi ŞEN', 'rahmisen@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '05523378537', 'active', '2024-11-29 00:12:32'),
-(8, 'Muhammed ŞEN', 'fatiih37@gmail.com', '202cb962ac59075b964b07152d234b70', '', '', '2024-11-29 00:51:05');
+(8, 'Muhammed ŞEN', 'fatiih37@gmail.com', '202cb962ac59075b964b07152d234b70', '05523378537', 'active', '2024-11-29 00:51:05');
 
 --
 -- Dökümü yapılmış tablolar için indeksler
